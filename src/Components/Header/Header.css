@@ -1,0 +1,149 @@
+.header__nav {
+  padding: 12px 0;
+  width: 100%;
+  height: 52px;
+  border-bottom: 1px solid rgb(243, 243, 247);
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 100%;
+}
+
+.header__nav-item {
+  font: 600 normal 14px/1.43 "Dodo Rounded";
+}
+
+.header__nav-link {
+  transition: color 0.25s ease;
+}
+
+.header__nav-link:hover {
+  color: rgb(255, 105, 0);
+}
+
+.header__nav-item:first-child .header__nav-link {
+  position: relative;
+  padding-left: 14px;
+}
+
+.header__nav-item:first-child .header__nav-link::before {
+  content: " ";
+  position: absolute;
+  left: 0px;
+  bottom: 3px;
+  background: red;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  animation: 1s ease-in-out 0s infinite alternate pulse;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+  from {
+    opacity: 0.3;
+  }
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  /* gap: 40px; */
+  padding: 24px 0px 16px;
+}
+
+.header__logo {
+  width: 250px;
+}
+
+.header__about,
+.header__contacts {
+  margin-left: 40px;
+}
+
+.header__about-text {
+  font: 500 normal 18px/1.2 "Dodo Rounded";
+}
+
+.header__about-link {
+  color: rgb(255, 105, 0);
+}
+
+.header__about-link:hover {
+  color: rgb(232, 97, 0);
+}
+
+.header__about-rate-text {
+  margin-top: 1px;
+  font: 500 normal 15px/1.4 "Dodo Rounded";
+}
+
+.dot {
+  display: inline-block;
+  width: 2.5px;
+  height: 3px;
+  margin: 3px 6px;
+  border-radius: 3px;
+  background-color: black;
+}
+
+.star {
+  display: inline-block;
+  margin-left: 2px;
+}
+
+.header__phone-number {
+  font: 500 normal 18px/1.2 "Dodo Rounded";
+}
+
+.header__phone-text {
+  margin-top: 4px;
+  font: 500 normal 15px/1 "Dodo Rounded";
+  color: rgb(153, 153, 153);
+}
+
+.header__coin {
+  margin-left: auto;
+}
+
+.coin__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coin__icon svg path {
+  transition: all 150ms ease 0s;
+}
+
+.coin__link:hover .coin__icon {
+  transform: translateY(-4px);
+}
+
+.coin__link:hover .coin__icon svg path {
+  fill: rgb(255, 105, 0);
+}
+
+.coin__link:hover .coin__text {
+  color: rgb(255, 105, 0);
+}
+
+.coin__icon {
+  width: 28px;
+  height: 28px;
+  transition: all 150ms ease 0s;
+}
+
+.coin__text {
+  font: 600 normal 14px/1.29 "Dodo Rounded";
+  transition: color 150ms ease 0s;
+}
+
+.header__btn {
+  margin-left: 32px;
+}

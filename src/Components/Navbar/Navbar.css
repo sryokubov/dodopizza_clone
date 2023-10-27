@@ -1,0 +1,45 @@
+.nav__content {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.nav__logo {
+  width: 36px;
+  height: 36px;
+  margin-left: -52px; /* -36px default */
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+
+/* .nav__item {
+} */
+
+.nav__item a {
+  padding: 22px 0;
+  font: 600 normal 14px/1 "Dodo Rounded";
+  transition: color 0.25s ease 0s; /* padding 0.25s ease 0s */
+}
+
+.nav__item:hover {
+  color: #ff6900;
+}
+
+.nav__item:first-child {
+  margin-left: 16px;
+}
+
+.nav__item:not(:first-child) {
+  margin-left: 20px;
+}
+
+.nav__btn {
+  margin-left: auto;
+}
+
+.abc {
+  background-color: black;
+}
