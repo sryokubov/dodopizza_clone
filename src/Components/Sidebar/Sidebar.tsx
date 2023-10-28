@@ -1,14 +1,16 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import classNames from "classnames";
 
 import styles from "./Sidebar.module.css";
+import { SidebarContext } from "../../context";
 
-export interface SidebarProps {
-  isSidebarVisible: boolean;
-  setIsSidebarVisible: React.Dispatch<React.SetStateAction<boolean>>;
-}
+// export interface SidebarProps {
+//   isSidebarVisible: boolean;
+//   setIsSidebarVisible: React.Dispatch<React.SetStateAction<boolean>>;
+// }
 
-const Sidebar = ({ isSidebarVisible, setIsSidebarVisible }: SidebarProps) => {
+const Sidebar = () => {
+  const { isSidebarVisible, setIsSidebarVisible } = useContext(SidebarContext);
   useEffect(() => {
     if (isSidebarVisible) {
       document.body.style.overflow = "hidden";

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ModalContext } from "../../context";
 import { formatPrice } from "../../utilities";
 
 export interface ProductCardProps {
@@ -10,8 +12,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
   price,
 }: ProductCardProps) => {
   const formattedPrice = formatPrice(price);
+  const { isModalVisible, setIsModalVisible } = useContext(ModalContext);
   return (
-    <div>
+    <div
+      onClick={() => {
+        setIsModalVisible(true);
+      }}
+    >
       <div className="card__header">Image</div>
       <div className="card__body">
         <h3 className="card__title">{title}</h3>

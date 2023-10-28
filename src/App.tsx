@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Header, Navbar, ProductCard, Sidebar } from "./Components";
+import { Header, Modal, Navbar, ProductCard, Sidebar } from "./Components";
+import { ModalContext, SidebarContext } from "./context";
 
 import "./base.css";
 
@@ -21,6 +22,10 @@ const Pizzas: React.FC<{ pizzas: Pizza[] }> = ({
 function App() {
   const [pizzas, setPizzas] = useState<Pizza[]>([]);
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+
+  const value = { isModalVisible, setIsModalVisible };
+  const value2 = { isSidebarVisible, setIsSidebarVisible };
 
   useEffect(() => {
     (async () => {
@@ -35,13 +40,15 @@ function App() {
   }, []);
   return (
     <>
-      <Header />
-      <Navbar setIsSidebarVisible={setIsSidebarVisible} />
-      <Pizzas pizzas={pizzas!} />
-      <Sidebar
-        isSidebarVisible={isSidebarVisible}
-        setIsSidebarVisible={setIsSidebarVisible}
-      />
+      <ModalContext.Provider value={value}>
+        <SidebarContext.Provider value={value2}>
+          <Header />
+          <Navbar setIsSidebarVisible={setIsSidebarVisible} />
+          <Pizzas pizzas={pizzas!} />
+          <Sidebar />
+          <Modal />
+        </SidebarContext.Provider>
+      </ModalContext.Provider>
     </>
   );
 }

@@ -1,0 +1,54 @@
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  &__window {
+    $width: 925px;
+    $height: 610px;
+    $border-radius: 20px;
+    position: fixed;
+    left: calc(50% - $width / 2);
+    top: calc(50% - $height / 2);
+    width: $width;
+    height: $height;
+    border-radius: $border-radius;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
+    background-color: #fff;
+  }
+
+  &__close_btn {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: -38px;
+    top: 13px;
+
+    &:hover {
+      transform: scale(1.11);
+    }
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+//? npm i -D sass
