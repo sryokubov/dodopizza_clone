@@ -3,7 +3,7 @@ import "./Header.css";
 
 const HeaderNav = () => {
   return (
-    <nav className="header__nav">
+    <nav id="top" className="header__nav">
       <div className="container">
         <ul className="header__nav-list">
           <li className="header__nav-item">

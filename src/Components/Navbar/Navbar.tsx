@@ -1,17 +1,37 @@
+import { useEffect, useRef, useState } from "react";
 import { Button } from "..";
 import "./Navbar.css";
+import classNames from "classnames";
 
 export interface NavbarProps {
   setIsSidebarVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
+  const navRef = useRef<HTMLElement | undefined>();
+  const [isNavLogHidden, setIsNavLogHidden] = useState(true);
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (navRef.current!.getBoundingClientRect().y === 0) {
+        setIsNavLogHidden(false);
+      } else {
+        setIsNavLogHidden(true);
+      }
+      console.log(navRef);
+    });
+  }, []);
+
   return (
-    <nav className="nav">
+    <nav
+      ref={navRef}
+      className={classNames("nav", { ["nav_on-scroll"]: !isNavLogHidden })}
+    >
       <div className="container">
         <div className="nav__content">
           <div className="nav__logo">
-            <img src="/icons/dodo-square-logo.png" alt="" />
+            <a href="#top">
+              <img src="/icons/dodo-square-logo.png" alt="" />
+            </a>
           </div>
           <ul className="nav__list">
             <li className="nav__item">

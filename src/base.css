@@ -6,11 +6,15 @@
 
 html {
   font-family: "Dodo Rounded";
+  scroll-behavior: smooth;
+}
+
+#root {
+  height: 200vh;
 }
 
 body {
   overflow-x: hidden;
-  height: 200vh;
 }
 
 ul {
