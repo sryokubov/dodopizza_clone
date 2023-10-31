@@ -44,7 +44,8 @@ function App() {
         <SidebarContext.Provider value={value2}>
           <Header />
           <Navbar setIsSidebarVisible={setIsSidebarVisible} />
-          <Pizzas pizzas={pizzas!} />
+          {/* <Pizzas pizzas={pizzas!} /> */}
+          <ProductCard title="Чиззи чеддер" price={55} />
           <Sidebar />
           <Modal />
         </SidebarContext.Provider>

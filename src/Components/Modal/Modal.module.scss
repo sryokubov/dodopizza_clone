@@ -26,6 +26,7 @@
     position: fixed;
     left: calc(50% - $width / 2);
     top: calc(50% - $height / 2);
+    display: flex;
     width: $width;
     height: $height;
     border-radius: $border-radius;
@@ -47,6 +48,33 @@
     img {
       width: 25px;
       height: 25px;
+    }
+  }
+  &__left {
+    width: 530px;
+    max-height: 610px;
+  }
+  &__right {
+    width: 395px;
+    height: 610px;
+    padding: 30px 0px;
+    background-color: rgb(252, 252, 252);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+  }
+  &__inner {
+    position: relative;
+    height: 478px;
+    overflow: hidden;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+    &_content {
+      position: absolute;
+      padding: 0 30px;
+      overflow: scroll;
+      margin-right: -17px;
     }
   }
 }
