@@ -83,13 +83,95 @@
   font: 500 normal 15px/1.4 "Dodo Rounded";
 }
 
+.header__about-rate-text:hover .header__info {
+  opacity: 1;
+  transform: translateX(calc(-50% + 1.5px)) translateY(12px);
+}
+
 .dot {
+  position: relative;
   display: inline-block;
-  width: 2.5px;
+  width: 3px;
   height: 3px;
   margin: 3px 6px;
   border-radius: 3px;
   background-color: black;
+}
+
+.header__info {
+  pointer-events: none;
+  position: absolute;
+  z-index: 101;
+  opacity: 0;
+  transform: translateX(calc(-50% + 1.5px)) translateY(20px);
+  margin-top: 6px;
+  width: 450px;
+  min-height: 45px;
+  padding: 12px;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(55, 53, 53);
+  transition: all 200ms ease-in-out;
+}
+
+.info__left,
+.info__right {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.info__big-text {
+  font: 500 26px/1.25 "Dodo Rounded";
+  display: block;
+}
+
+.info__right .info__big-text {
+  color: rgb(255, 210, 0);
+}
+
+.stars-list {
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.stars-list__item {
+  display: inline-block;
+  margin-inline: 1px;
+}
+
+.info__info__medium-text {
+  display: block;
+  margin-top: 2px;
+  font: 500 normal 14px/1.25 "Dodo Rounded";
+}
+
+.info__text {
+  display: block;
+  margin-top: 5px;
+  color: rgb(171, 173, 186);
+  font: 500 normal 14px/1.25 "Dodo Rounded";
+}
+
+/* bad code */
+.info__text-bottom {
+  margin-top: 16px;
+}
+
+.triangle {
+  position: absolute;
+  width: 22px;
+  height: auto;
+  fill: rgb(55, 53, 53);
+  top: -9px;
+  left: 50%;
+  margin-left: -11px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  font-size: 0px;
+  line-height: 0;
+  font-style: normal;
 }
 
 .star {

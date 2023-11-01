@@ -64,7 +64,183 @@ const Header = () => {
             </p>
             <p className="header__about-rate-text">
               43 мин
-              <div className="dot"></div>
+              <div className="dot">
+                <div className="header__info">
+                  <i className="triangle">
+                    <svg
+                      viewBox="0 0 18 12"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      // xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <path
+                        transform="translate(-2 0)"
+                        fill-rule="evenodd"
+                        d="M 9.52569 1.60834L 3.07216 8.64855C 1.89626 9.93135 2.80626 12 4.54647 12L 17.4535 12C 19.1937 12 20.1037 9.93135 18.9278 8.64855L 12.4743 1.60834C 11.6816 0.743602 10.3184 0.743603 9.52569 1.60834Z"
+                      ></path>
+                    </svg>
+                  </i>
+                  <div className="info__left">
+                    <span className="info__big-text">43 минуты</span>
+                    <span className="info__info__medium-text">
+                      Среднее время доставки
+                    </span>
+                    <span className="info__text">
+                      Если не&nbsp;успеем за&nbsp;60&nbsp;минут,
+                      вы&nbsp;получите сертификат на&nbsp;большую пиццу
+                    </span>
+                  </div>
+                  <div className="info__right">
+                    <span className="info__big-text">
+                      4.66
+                      <ul className="stars-list">
+                        <li className="stars-list__item">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            data-value="1"
+                          >
+                            <defs>
+                              <linearGradient id="star_24_svg__a">
+                                <stop offset="100%" stop-color="#FFD200"></stop>
+                                <stop
+                                  offset="100%"
+                                  stop-color="#999"
+                                  stop-opacity="0.5"
+                                ></stop>
+                              </linearGradient>
+                            </defs>
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              fill="url(#star_24_svg__a)"
+                              d="M10.846 3.17c.427-1.026 1.881-1.026 2.308 0l2.18 5.24 5.657.454c1.109.09 1.558 1.472.714 2.196l-4.31 3.692 1.316 5.52c.258 1.082-.918 1.937-1.867 1.358L12 18.67 7.157 21.63c-.95.58-2.126-.276-1.868-1.357l1.317-5.52-4.31-3.693c-.845-.724-.396-2.107.713-2.196l5.657-.453 2.18-5.24z"
+                            ></path>
+                          </svg>
+                        </li>
+                        <li className="stars-list__item">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            data-value="1"
+                          >
+                            <defs>
+                              <linearGradient id="star_24_svg__a">
+                                <stop offset="100%" stop-color="#FFD200"></stop>
+                                <stop
+                                  offset="100%"
+                                  stop-color="#999"
+                                  stop-opacity="0.5"
+                                ></stop>
+                              </linearGradient>
+                            </defs>
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              fill="url(#star_24_svg__a)"
+                              d="M10.846 3.17c.427-1.026 1.881-1.026 2.308 0l2.18 5.24 5.657.454c1.109.09 1.558 1.472.714 2.196l-4.31 3.692 1.316 5.52c.258 1.082-.918 1.937-1.867 1.358L12 18.67 7.157 21.63c-.95.58-2.126-.276-1.868-1.357l1.317-5.52-4.31-3.693c-.845-.724-.396-2.107.713-2.196l5.657-.453 2.18-5.24z"
+                            ></path>
+                          </svg>
+                        </li>
+                        <li className="stars-list__item">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            data-value="1"
+                          >
+                            <defs>
+                              <linearGradient id="star_24_svg__a">
+                                <stop offset="100%" stop-color="#FFD200"></stop>
+                                <stop
+                                  offset="100%"
+                                  stop-color="#999"
+                                  stop-opacity="0.5"
+                                ></stop>
+                              </linearGradient>
+                            </defs>
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              fill="url(#star_24_svg__a)"
+                              d="M10.846 3.17c.427-1.026 1.881-1.026 2.308 0l2.18 5.24 5.657.454c1.109.09 1.558 1.472.714 2.196l-4.31 3.692 1.316 5.52c.258 1.082-.918 1.937-1.867 1.358L12 18.67 7.157 21.63c-.95.58-2.126-.276-1.868-1.357l1.317-5.52-4.31-3.693c-.845-.724-.396-2.107.713-2.196l5.657-.453 2.18-5.24z"
+                            ></path>
+                          </svg>
+                        </li>
+                        <li className="stars-list__item">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            data-value="1"
+                          >
+                            <defs>
+                              <linearGradient id="star_24_svg__a">
+                                <stop offset="100%" stop-color="#FFD200"></stop>
+                                <stop
+                                  offset="100%"
+                                  stop-color="#999"
+                                  stop-opacity="0.5"
+                                ></stop>
+                              </linearGradient>
+                            </defs>
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              fill="url(#star_24_svg__a)"
+                              d="M10.846 3.17c.427-1.026 1.881-1.026 2.308 0l2.18 5.24 5.657.454c1.109.09 1.558 1.472.714 2.196l-4.31 3.692 1.316 5.52c.258 1.082-.918 1.937-1.867 1.358L12 18.67 7.157 21.63c-.95.58-2.126-.276-1.868-1.357l1.317-5.52-4.31-3.693c-.845-.724-.396-2.107.713-2.196l5.657-.453 2.18-5.24z"
+                            ></path>
+                          </svg>
+                        </li>
+                        <li className="stars-list__item">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            data-value="1"
+                          >
+                            <defs>
+                              <linearGradient id="star_24_svg__aa">
+                                <stop offset="50%" stop-color="#FFD200"></stop>
+                                <stop
+                                  offset="50%"
+                                  stop-color="#999"
+                                  stop-opacity="0.5"
+                                ></stop>
+                              </linearGradient>
+                            </defs>
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              fill="url(#star_24_svg__aa)"
+                              d="M10.846 3.17c.427-1.026 1.881-1.026 2.308 0l2.18 5.24 5.657.454c1.109.09 1.558 1.472.714 2.196l-4.31 3.692 1.316 5.52c.258 1.082-.918 1.937-1.867 1.358L12 18.67 7.157 21.63c-.95.58-2.126-.276-1.868-1.357l1.317-5.52-4.31-3.693c-.845-.724-.396-2.107.713-2.196l5.657-.453 2.18-5.24z"
+                            ></path>
+                          </svg>
+                        </li>
+                      </ul>
+                    </span>
+                    <span className="info__info__medium-text">660 оценок</span>
+                    <span className="info__text">
+                      Оценить заказ можно в мобильном приложении
+                    </span>
+                  </div>
+                  <span className="info__text info__text-bottom">
+                    Данные за последние 7 дней в вашем городе
+                  </span>
+                </div>
+              </div>
               4.66
               <div className="star">
                 <svg
