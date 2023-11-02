@@ -57,24 +57,55 @@
   &__right {
     width: 395px;
     height: 610px;
-    padding: 30px 0px;
+    padding: 30px 3px 0 0;
     background-color: rgb(252, 252, 252);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     overflow: hidden;
   }
+
   &__inner {
     position: relative;
+    width: 100%;
     height: 478px;
-    overflow: hidden;
+    overflow-y: scroll;
     &::-webkit-scrollbar {
-      width: 0;
+      width: 8px;
+      background: transparent;
     }
+    &::-webkit-scrollbar-thumb {
+      background-color: lighten(rgba(57, 57, 57, 0.3), 40%);
+      border-radius: 4px;
+      &:hover {
+        background-color: rgba(57, 57, 57, 0.3);
+      }
+    }
+
     &_content {
-      position: absolute;
-      padding: 0 30px;
-      overflow: scroll;
-      margin-right: -17px;
+      padding: 0 19px 0 30px;
+    }
+  }
+  &__title {
+    font: 500 normal 24px/28px "Dodo Rounded";
+  }
+
+  &__card_box {
+    padding: 14px 0px 24px;
+  }
+
+  &__card_title {
+    font: 600 normal 20px/24px "Dodo Rounded";
+    margin-bottom: 12px;
+  }
+  &__card_container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  &__button {
+    margin: 24px 30px 30px;
+    button {
+      width: 100%;
     }
   }
 }

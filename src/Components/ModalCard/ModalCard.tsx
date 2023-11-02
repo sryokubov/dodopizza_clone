@@ -1,15 +1,19 @@
 import { useState } from "react";
 import classNames from "classnames";
 import { formatPrice } from "../../utilities";
-import styles from "./Card.module.scss";
+import styles from "./ModalCard.module.scss";
 
-interface CardProps {
+interface ModalCardProps {
   imageSrc: string;
   title: string;
   price: number;
 }
 
-const Card: React.FC<CardProps> = ({ imageSrc, title, price }: CardProps) => {
+const ModalCard: React.FC<ModalCardProps> = ({
+  imageSrc,
+  title,
+  price,
+}: ModalCardProps) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const onClickHandler = () => {
@@ -57,4 +61,4 @@ const Card: React.FC<CardProps> = ({ imageSrc, title, price }: CardProps) => {
   );
 };
 
-export default Card;
+export default ModalCard;
