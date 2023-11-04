@@ -9,3 +9,8 @@ export const SidebarContext = createContext({
   isSidebarVisible: false,
   setIsSidebarVisible: () => {},
 });
+
+export const LoginModalContext = createContext({
+  isLoginModalVisible: false,
+  setLoginModalVisible: () => {},
+});

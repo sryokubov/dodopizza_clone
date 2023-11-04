@@ -5,3 +5,4 @@ export { default as ProductCard } from "./ProductCard";
 export { default as Sidebar } from "./Sidebar";
 export { default as Modal } from "./Modal";
 export { default as ModalCard } from "./ModalCard";
+export { default as LoginModal } from "./LoginModal";

@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Button } from "../";
+import { LoginModalContext } from "../../context";
 import "./Header.css";
 
 const HeaderNav = () => {
@@ -33,6 +35,8 @@ const HeaderNav = () => {
 };
 
 const Header = () => {
+  const { isLoginModalVisible, setLoginModalVisible } =
+    useContext(LoginModalContext);
   return (
     <header>
       <HeaderNav />
@@ -284,7 +288,14 @@ const Header = () => {
             </a>
           </div>
           <div className="header__btn">
-            <Button type="small-btn" size="tertiary-btn" text="Войти" />
+            <Button
+              onClick={() => {
+                setLoginModalVisible(true);
+              }}
+              type="small-btn"
+              size="tertiary-btn"
+              text="Войти"
+            />
           </div>
         </div>
       </div>
