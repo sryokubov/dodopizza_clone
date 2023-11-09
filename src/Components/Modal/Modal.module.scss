@@ -51,9 +51,25 @@
     }
   }
   &__left {
+    position: relative;
     width: 530px;
     max-height: 610px;
   }
+  &__img {
+    width: 95%;
+    margin: 5% 0 0 5%;
+    &_box {
+      transition: margin 0.25s ease-in-out 0s;
+    }
+  }
+  &__svg_icon {
+    position: absolute;
+    z-index: 2;
+    top: 80px;
+    left: 40px;
+    width: 450px;
+  }
+
   &__right {
     width: 395px;
     height: 610px;
