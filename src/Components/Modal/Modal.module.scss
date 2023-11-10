@@ -4,10 +4,14 @@
   top: 0;
   left: 0;
   opacity: 0;
+  transition: all 150ms ease 0s;
 
   &.visible {
     visibility: visible;
     opacity: 1;
+    .modal__window {
+      transform: scale(1);
+    }
   }
 
   &__background {
@@ -32,6 +36,8 @@
     border-radius: $border-radius;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
     background-color: #fff;
+    transform: scale(0.96);
+    transition: all 150ms ease 0s;
   }
 
   &__close_btn {
@@ -40,6 +46,8 @@
     position: absolute;
     right: -38px;
     top: 13px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out 0s;
 
     &:hover {
       transform: scale(1.11);
@@ -68,6 +76,21 @@
     top: 80px;
     left: 40px;
     width: 450px;
+    visibility: hidden;
+    &.visible {
+      visibility: visible;
+    }
+    &_small {
+      position: absolute;
+      z-index: 2;
+      top: 113px;
+      left: 73px;
+      width: 382px;
+      visibility: hidden;
+      &.visible {
+        visibility: visible;
+      }
+    }
   }
 
   &__right {
@@ -103,6 +126,12 @@
   }
   &__title {
     font: 500 normal 24px/28px "Dodo Rounded";
+  }
+  &__info {
+    padding: 1px 0 5px;
+    color: #5c6370;
+    font-size: 14px;
+    line-height: 20px;
   }
 
   &__card_box {

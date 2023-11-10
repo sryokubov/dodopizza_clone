@@ -97,6 +97,10 @@ const Modal = () => {
   const { isModalVisible, setIsModalVisible } = useContext(ModalContext);
   const [doughType, setDoughType] = useState("traditional");
   const [size, setSize] = useState("medium");
+  const [isBigCircleVisible, setBigCircleVisible] = useState(true);
+  const [isSmallCircleVisible, setSmallCircleVisible] = useState(false);
+  const [pizzaSizeInfo, setPizzaSize] = useState("30");
+  const [doughTypeInfo, setDoughTypeInfo] = useState("традиционное");
 
   const pizzaImage = filterPizzaImage(size, doughType);
 
@@ -109,9 +113,11 @@ const Modal = () => {
       switch (e.target.dataset.order) {
         case "0":
           setDoughType("traditional");
+          setDoughTypeInfo("традиционное");
           break;
         case "1":
           setDoughType("thin");
+          setDoughTypeInfo("тонкое");
           break;
       }
     }
@@ -126,12 +132,18 @@ const Modal = () => {
       switch (e.target.dataset.order) {
         case "0":
           setSize("small");
+          setBigCircleVisible(true);
+          setSmallCircleVisible(true);
           break;
         case "1":
           setSize("medium");
+          setBigCircleVisible(true);
+          setSmallCircleVisible(false);
           break;
         case "2":
           setSize("large");
+          setBigCircleVisible(false);
+          setSmallCircleVisible(false);
           break;
       }
     }
@@ -144,6 +156,20 @@ const Modal = () => {
 
     return filteredPizzaImage[0].link;
   }
+
+  useEffect(() => {
+    switch (size) {
+      case "small":
+        setPizzaSize("25");
+        break;
+      case "medium":
+        setPizzaSize("30");
+        break;
+      case "large":
+        setPizzaSize("35");
+        break;
+    }
+  }, [size]);
 
   useEffect(() => {
     if (isModalVisible) {
@@ -169,9 +195,11 @@ const Modal = () => {
   };
   return (
     <div
-      className={classNames(styles.modal, { [styles.visible]: isModalVisible })}
+      className={classNames(styles.modal, {
+        [styles.visible]: isModalVisible,
+      })}
     >
-      <div className={styles.modal__background}></div>
+      <div onClick={onClickHandler} className={styles.modal__background}></div>
       <div className={styles.modal__window}>
         <div className={styles.modal__close_btn} onClick={onClickHandler}>
           <img src="/icons/cross-icon.svg" alt="" />
@@ -185,33 +213,28 @@ const Modal = () => {
           >
             <img className={styles.modal__img} src={pizzaImage} alt="" />
           </div>
-          <div className={styles.modal__svg_icon}>
-            <svg
-              width="450"
-              height="450"
-              viewBox="0 0 450 450"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <ellipse
-                opacity="0.6"
-                cx="225"
-                cy="225"
-                rx="224"
-                ry="224"
-                stroke="#6F6E6F"
-                stroke-width="0.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-dasharray="2 12.2"
-              ></ellipse>
-            </svg>
+          <div
+            className={classNames(styles.modal__svg_icon, {
+              [styles.visible]: isBigCircleVisible,
+            })}
+          >
+            <img src="/icons/pizza-size-circle-big.svg" alt="" />
+          </div>
+          <div
+            className={classNames(styles.modal__svg_icon_small, {
+              [styles.visible]: isSmallCircleVisible,
+            })}
+          >
+            <img src="/icons/pizza-size-circle-small.svg" alt="" />
           </div>
         </div>
         <div className={styles.modal__right}>
           <div className={styles.modal__inner}>
             <div className={styles.modal__inner_content}>
               <h1 className={styles.modal__title}>Чиззи чеддер</h1>
+              <p className={styles.modal__info}>
+                {pizzaSizeInfo} см, {doughTypeInfo} тесто, 480 г
+              </p>
               <Switch
                 options={[
                   { title: "Маленькая", value: "small", id: 0 },
