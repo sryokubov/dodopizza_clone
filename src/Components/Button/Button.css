@@ -2,13 +2,13 @@
   border: 0;
   border-radius: 9999px;
   cursor: pointer;
+  transition-property: background-color, color;
+  transition-duration: 200ms;
 }
 
 .small-btn {
   padding: 8px 16px;
-  font: 500 normal 14px/1.14 "Dodo Rounded";
-  transition-property: background-color, color;
-  transition-duration: 200ms;
+  font: 500 normal 14px/1.14 'Dodo Rounded';
 }
 
 .small-btn:hover {
@@ -20,14 +20,44 @@
   background-color: #ff6900;
 }
 
+.primary-btn:hover {
+  background-color: rgb(232, 97, 0);
+  color: rgb(255, 255, 255);
+}
+
+.primary-btn:active {
+  background-color: rgb(255, 105, 0);
+  color: rgb(255, 165, 102);
+}
+
+.secondary-btn {
+  background-color: rgb(255, 240, 230);
+  color: rgb(209, 87, 0);
+}
+
+.secondary-btn:hover {
+  background-color: rgb(255, 210, 179);
+  color: rgb(209, 87, 0);
+}
+
+.secondary-btn:active {
+  background-color: rgb(255, 240, 230);
+  color: rgb(255, 210, 179);
+}
+
 .tertiary-btn {
   color: #5c6370;
   background-color: #f3f3f7;
 }
 
+.tertiary-btn:hover,
+.tertiary-btn:active {
+  color: rgb(0, 0, 0);
+}
+
 .medium-btn {
   padding: 8px 20px;
-  font: 500 normal 16px/1.5 "Dodo Rounded";
+  font: 500 normal 16px/24px 'Dodo Rounded';
 }
 
 .big-btn {

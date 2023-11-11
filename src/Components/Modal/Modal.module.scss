@@ -102,7 +102,13 @@
     }
   }
   &__title {
-    font: 500 normal 24px/28px "Dodo Rounded";
+    font: 500 normal 24px/28px 'Dodo Rounded';
+  }
+
+  &__info {
+    color: #5c6370;
+    font-size: 14px;
+    line-height: 20px;
   }
 
   &__card_box {
@@ -110,7 +116,7 @@
   }
 
   &__card_title {
-    font: 600 normal 20px/24px "Dodo Rounded";
+    font: 600 normal 20px/24px 'Dodo Rounded';
     margin-bottom: 12px;
   }
   &__card_container {

@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 292px;
+  height: 448px;
+  margin-right: 37.3333px;
+  margin-bottom: 60px;
+  // border: 1px solid #000;
+  cursor: pointer;
+  &:nth-child(4n + 4) {
+    margin-right: 0;
+  }
+  &__header {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    padding: 5% 0 0 5%;
+    transition: all 150ms ease-out 0s;
+    &:hover {
+      top: 3px;
+    }
+  }
+  // &__body {
+  // }
+  &__title {
+    margin: 8px 0;
+    font: 500 normal 20px/24px 'Dodo Rounded';
+  }
+  &__description {
+    font: 400 normal 14px/20px 'Dodo Rounded';
+    color: rgb(92, 99, 112);
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+  &__price_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__price {
+    font: 600 normal 20px/22px 'Dodo Rounded';
+  }
+  &__old_price {
+    position: relative;
+    font: 600 normal 14px/18px 'Dodo Rounded';
+    color: rgb(92, 99, 112);
+  }
+  &__discount {
+    position: absolute;
+    // width: 110%;
+    height: 80%;
+    left: -5%;
+    bottom: 0%;
+  }
+}

@@ -1,4 +1,4 @@
-import "./Button.css";
+import './Button.css';
 
 interface IButtonProps {
   type: string;
@@ -10,7 +10,7 @@ interface IButtonProps {
 const Button = ({ type, size, text, onClick }: IButtonProps) => {
   return (
     <div>
-      <button className={"btn " + size + " " + type} onClick={onClick}>
+      <button className={'btn ' + size + ' ' + type} onClick={onClick}>
         {text}
       </button>
     </div>
