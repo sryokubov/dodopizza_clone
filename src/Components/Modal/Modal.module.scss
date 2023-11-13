@@ -5,7 +5,9 @@
   left: 0;
   opacity: 0;
   transition: all 150ms ease 0s;
-
+  & * {
+    visibility: inherit !important;
+  }
   &.visible {
     visibility: visible;
     opacity: 1;
@@ -155,9 +157,6 @@
   }
   &__button {
     margin: 24px 30px 30px;
-    button {
-      width: 100%;
-    }
   }
 }
 

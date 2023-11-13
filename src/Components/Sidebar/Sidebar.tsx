@@ -1,8 +1,8 @@
-import { useContext, useEffect } from "react";
-import classNames from "classnames";
+import { useContext, useEffect } from 'react';
+import classNames from 'classnames';
 
-import styles from "./Sidebar.module.css";
-import { SidebarContext } from "../../context";
+import styles from './Sidebar.module.scss';
+import { SidebarContext } from '../../context';
 
 // export interface SidebarProps {
 //   isSidebarVisible: boolean;
@@ -13,9 +13,9 @@ const Sidebar = () => {
   const { isSidebarVisible, setIsSidebarVisible } = useContext(SidebarContext);
   useEffect(() => {
     if (isSidebarVisible) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     }
   }, [isSidebarVisible]);
 
@@ -24,16 +24,18 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={styles.sidebar}>
+    <div
+      className={classNames(styles.sidebar, {
+        [styles.visible]: isSidebarVisible,
+      })}
+    >
       <div
-        className={classNames(styles.sidebar__background, {
-          [styles.visible]: isSidebarVisible,
-        })}
+        className={classNames(styles.sidebar__background)}
         onClick={onClickHandler}
       ></div>
       <div className={styles.sidebar__panel}>
         <div className={styles.sidebar__close_btn} onClick={onClickHandler}>
-          <img src="/icons/cross-icon.svg" alt="" />
+          <img src='/icons/cross-icon.svg' alt='' />
         </div>
       </div>
     </div>

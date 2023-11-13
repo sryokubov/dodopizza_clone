@@ -9,6 +9,9 @@
   width: 100%;
   height: 100vh;
   visibility: hidden;
+  & * {
+    visibility: inherit !important;
+  }
   &_visible {
     visibility: visible;
   }
@@ -24,8 +27,8 @@
   }
   &__window {
     position: relative;
-    // display: flex;
-    // flex-direction: column;
+    display: flex;
+    flex-direction: column;
     padding: 32px;
     width: 409px;
     min-height: 399px;
@@ -44,23 +47,23 @@
   }
   &__title {
     margin: 0 0 8px;
-    font: 500 normal 36px/1 "Dodo Rounded";
+    font: 500 normal 36px/1 'Dodo Rounded';
   }
   &__text {
-    margin: 0 0 24px;
-    font: 600 normal 16px/20px "Dodo Rounded";
+    font: 600 normal 16px/20px 'Dodo Rounded';
     color: #5c6370;
   }
   &__select_phone_num {
     display: flex;
     gap: 8px;
+    margin: 24px 0 0;
     width: 100%;
   }
   //   &__selector_container {
   //     height: 100%;
   //   }
   &__selector_title {
-    font: 500 normal 14px/18px "Dodo Rounded";
+    font: 500 normal 14px/18px 'Dodo Rounded';
     margin-bottom: 8px;
     color: #5c6370;
   }
@@ -86,12 +89,76 @@
     width: 100%;
     border: 1px solid rgb(226, 226, 233);
     border-radius: 12px;
-    font: 500 normal 16px/20px "Dodo Rounded";
+    font: 500 normal 16px/20px 'Dodo Rounded';
     background-color: #fff;
     background-color: rgba(243, 243, 247, 0.26);
     &:focus {
       border-color: #ff6900;
       outline: none;
+    }
+    &_text {
+      margin-bottom: 24px;
+      font: 600 normal 16px/20px 'Dodo Rounded';
+      color: #000;
+    }
+  }
+  &__btn {
+    margin-top: auto;
+  }
+  &__change_phone_num_text {
+    margin-left: 8px;
+    border: 0;
+    outline: none;
+    font: 600 normal 16px/20px 'Dodo Rounded';
+    color: rgb(255, 105, 0);
+    background-color: transparent;
+    cursor: pointer;
+    &:hover,
+    &:active {
+      color: rgb(209, 87, 0);
+    }
+  }
+  &__error_text {
+    visibility: hidden !important;
+    margin-top: 8px;
+    font: 600 normal 16px/20px 'Dodo Rounded';
+    text-align: center;
+    color: rgb(255, 59, 48);
+  }
+  &__code_inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+    min-height: 92px;
+    &.error {
+      & input {
+        border-color: rgb(255, 59, 48) !important;
+        color: rgb(255, 59, 48) !important;
+      }
+      .modal__error_text {
+        visibility: visible !important;
+      }
+    }
+    & input {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 52px !important;
+      height: 60px !important;
+      outline: none !important;
+      font: 600 normal 36px/1 'Dodo Rounded' !important;
+      text-align: center !important;
+      border: 1px solid rgb(211, 213, 222) !important;
+      border-radius: 12px !important;
+      background-color: rgb(255, 255, 255) !important;
+      color: rgb(0, 0, 0) !important;
+      box-shadow: none !important;
+      &:not(:last-child) {
+        margin-right: 12px !important;
+      }
+      &:focus {
+        border-color: rgb(255, 105, 0) !important;
+      }
     }
   }
 }
