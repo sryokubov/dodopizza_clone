@@ -8,7 +8,7 @@ import { LoginModalContext } from '../../context';
 
 import 'react-international-phone/style.css';
 import styles from './LoginModal.module.scss';
-import ReactCodeInput from 'react-code-input';
+// import ReactCodeInput from 'react-code-input';
 // import { reactCodeInput } from 'react-code-input/styles/style.scss';
 
 const phoneUtil = PhoneNumberUtil.getInstance();
@@ -57,18 +57,14 @@ const LoginModal = () => {
           <div className={styles.modal__selector_container}>
             <p className={styles.modal__selector_title}>Страна</p>
             <button className={styles.modal__country_selector}>
-                <img
-                    className={styles.modal__flag_icon}
-                />
-              <img src="/icons/arrow_down.svg" alt="" />
+              <img className={styles.modal__flag_icon} />
+              <img src='/icons/arrow_down.svg' alt='' />
             </button>
           </div>
           <div className={styles.modal__selector_container}>
             <label>
               <p className={styles.modal__selector_title}>Номер телефона</p>
               <PhoneInput
-              <input
-                ref={inputRef}
                 className={styles.modal__phone_num}
                 ref={phoneInputRef}
                 placeholder='+998 99-999-99-99'

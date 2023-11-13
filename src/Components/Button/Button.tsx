@@ -12,7 +12,7 @@ const Button = ({
   type,
   size,
   text,
-  disabled = true,
+  disabled = false,
   onClick,
 }: IButtonProps) => {
   return (

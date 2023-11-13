@@ -99,9 +99,8 @@ const Modal = () => {
   const [size, setSize] = useState('medium');
   const [isBigCircleVisible, setBigCircleVisible] = useState(true);
   const [isSmallCircleVisible, setSmallCircleVisible] = useState(false);
-  const [pizzaSizeInfo, setPizzaSize] = useState("30");
-  const [doughTypeInfo, setDoughTypeInfo] = useState("традиционное");
-
+  const [pizzaSizeInfo, setPizzaSize] = useState('30');
+  const [doughTypeInfo, setDoughTypeInfo] = useState('традиционное');
 
   const pizzaImage = filterPizzaImage(size, doughType);
 
@@ -112,14 +111,13 @@ const Modal = () => {
 
     if (e.target.dataset.order) {
       switch (e.target.dataset.order) {
-
-        case "0":
-          setDoughType("traditional");
-          setDoughTypeInfo("традиционное");
+        case '0':
+          setDoughType('traditional');
+          setDoughTypeInfo('традиционное');
           break;
-        case "1":
-          setDoughType("thin");
-          setDoughTypeInfo("тонкое");
+        case '1':
+          setDoughType('thin');
+          setDoughTypeInfo('тонкое');
           break;
       }
     }
@@ -132,18 +130,19 @@ const Modal = () => {
 
     if (e.target.dataset.order) {
       switch (e.target.dataset.order) {
-        case "0":
-          setSize("small");
+        case '0':
+          setDoughType('traditional');
+          setSize('small');
           setBigCircleVisible(true);
           setSmallCircleVisible(true);
           break;
-          case "1":
-              setSize("medium");
-              setBigCircleVisible(true);
-              setSmallCircleVisible(false);
-              break;
-        case "2":
-          setSize("large");
+        case '1':
+          setSize('medium');
+          setBigCircleVisible(true);
+          setSmallCircleVisible(false);
+          break;
+        case '2':
+          setSize('large');
           setBigCircleVisible(false);
           setSmallCircleVisible(false);
           break;
@@ -244,14 +243,14 @@ const Modal = () => {
               [styles.visible]: isBigCircleVisible,
             })}
           >
-            <img src="/icons/pizza-size-circle-big.svg" alt="" />
+            <img src='/icons/pizza-size-circle-big.svg' alt='' />
           </div>
           <div
             className={classNames(styles.modal__svg_icon_small, {
               [styles.visible]: isSmallCircleVisible,
             })}
           >
-            <img src="/icons/pizza-size-circle-small.svg" alt="" />
+            <img src='/icons/pizza-size-circle-small.svg' alt='' />
           </div>
         </div>
         <div className={styles.modal__right}>

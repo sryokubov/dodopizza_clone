@@ -10,7 +10,8 @@ interface Option {
 interface SwitchProps {
   options: Option[];
   defaultValue: string;
-  onClick: (e) => void;
+  onClick: (e: unknown) => void;
+  value?: string;
 }
 
 const Switch = ({ options, defaultValue, onClick }: SwitchProps) => {
