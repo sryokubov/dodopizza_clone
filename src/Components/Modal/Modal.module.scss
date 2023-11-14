@@ -5,9 +5,9 @@
   left: 0;
   opacity: 0;
   transition: all 150ms ease 0s;
-  & * {
-    visibility: inherit !important;
-  }
+  // & * {
+  //   visibility: inherit !important;
+  // }
   &.visible {
     visibility: visible;
     opacity: 1;
@@ -78,9 +78,11 @@
     top: 80px;
     left: 40px;
     width: 450px;
-    visibility: hidden;
+    display: none;
+    // visibility: hidden;
     &.visible {
-      visibility: visible;
+      display: block;
+      // visibility: visible;
     }
     &_small {
       position: absolute;
@@ -88,9 +90,11 @@
       top: 113px;
       left: 73px;
       width: 382px;
-      visibility: hidden;
+      display: none;
+      // visibility: hidden;
       &.visible {
-        visibility: visible;
+        display: block;
+        // visibility: visible;
       }
     }
   }

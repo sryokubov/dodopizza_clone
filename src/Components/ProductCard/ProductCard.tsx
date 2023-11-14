@@ -40,20 +40,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <span className={styles.card__price}>от {formattedPrice} сумов</span>
           {oldPrice && (
             <span className={styles.card__old_price}>
-              <svg
-                viewBox='0 0 75 10'
-                preserveAspectRatio='none'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
+              <img
                 className={styles.card__discount}
-              >
-                <path
-                  opacity='0.55'
-                  d='M1 9c7.346-1.833 34.434-7.5 73-8'
-                  stroke='#FF6900'
-                  stroke-width='2'
-                ></path>
-              </svg>
+                src='/icons/discount.svg'
+                alt=''
+              />
               {formatPrice(oldPrice)} сумов
             </span>
           )}

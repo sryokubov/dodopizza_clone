@@ -1,0 +1,11 @@
+<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' data-value='1'>
+    <defs>
+        <linearGradient id='star_24_svg__aa'>
+            <stop offset='50%' stop-color='#FFD200'></stop>
+            <stop offset='50%' stop-color='#999' stop-opacity='0.5'></stop>
+        </linearGradient>
+    </defs>
+    <path fill-rule='evenodd' clip-rule='evenodd' fill='url(#star_24_svg__aa)'
+        d='M10.846 3.17c.427-1.026 1.881-1.026 2.308 0l2.18 5.24 5.657.454c1.109.09 1.558 1.472.714 2.196l-4.31 3.692 1.316 5.52c.258 1.082-.918 1.937-1.867 1.358L12 18.67 7.157 21.63c-.95.58-2.126-.276-1.868-1.357l1.317-5.52-4.31-3.693c-.845-.724-.396-2.107.713-2.196l5.657-.453 2.18-5.24z'>
+    </path>
+</svg>

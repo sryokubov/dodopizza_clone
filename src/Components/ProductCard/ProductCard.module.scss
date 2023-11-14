@@ -20,8 +20,6 @@
       top: 3px;
     }
   }
-  // &__body {
-  // }
   &__title {
     margin: 8px 0;
     font: 500 normal 20px/24px 'Dodo Rounded';
@@ -50,7 +48,7 @@
   }
   &__discount {
     position: absolute;
-    // width: 110%;
+    width: 105px;
     height: 80%;
     left: -5%;
     bottom: 0%;
