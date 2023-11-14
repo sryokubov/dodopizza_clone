@@ -4,11 +4,6 @@ import classNames from 'classnames';
 import styles from './Sidebar.module.scss';
 import { SidebarContext } from '../../context';
 
-// export interface SidebarProps {
-//   isSidebarVisible: boolean;
-//   setIsSidebarVisible: React.Dispatch<React.SetStateAction<boolean>>;
-// }
-
 const Sidebar = () => {
   const { isSidebarVisible, setIsSidebarVisible } = useContext(SidebarContext);
   useEffect(() => {

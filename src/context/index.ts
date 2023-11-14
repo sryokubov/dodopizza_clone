@@ -1,16 +1,37 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-export const ModalContext = createContext({
+interface ModalContextInterface {
+  isModalVisible: boolean;
+  setIsModalVisible:
+    | React.Dispatch<React.SetStateAction<boolean>>
+    | (() => void);
+}
+
+interface SidebarContextInterface {
+  isSidebarVisible: boolean;
+  setIsSidebarVisible:
+    | React.Dispatch<React.SetStateAction<boolean>>
+    | (() => void);
+}
+
+interface LoginModalContextInterface {
+  isLoginModalVisible: boolean;
+  setLoginModalVisible:
+    | React.Dispatch<React.SetStateAction<boolean>>
+    | (() => void);
+}
+
+export const ModalContext = createContext<ModalContextInterface>({
   isModalVisible: false,
   setIsModalVisible: () => {},
 });
 
-export const SidebarContext = createContext({
+export const SidebarContext = createContext<SidebarContextInterface>({
   isSidebarVisible: false,
   setIsSidebarVisible: () => {},
 });
 
-export const LoginModalContext = createContext({
+export const LoginModalContext = createContext<LoginModalContextInterface>({
   isLoginModalVisible: false,
   setLoginModalVisible: () => {},
 });

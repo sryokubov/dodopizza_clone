@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { PhoneNumberUtil } from 'google-libphonenumber';
-import { PhoneInput } from 'react-international-phone';
+import { PhoneInput, PhoneInputProps } from 'react-international-phone';
 
 import { Button } from '..';
 import { LoginModalContext } from '../../context';
@@ -26,7 +26,12 @@ const LoginModal = () => {
   const { isLoginModalVisible, setLoginModalVisible } =
     useContext(LoginModalContext);
 
-  const phoneInputRef = useRef<any>(null);
+  const phoneInputRef =
+    useRef<
+      React.ForwardRefExoticComponent<
+        PhoneInputProps & React.RefAttributes<PhoneInputRefType>
+      >
+    >(null);
   const [phone, setPhone] = useState('');
   const isValid = isPhoneValid(phone);
 

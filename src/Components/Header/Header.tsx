@@ -1,6 +1,9 @@
 import { useContext } from 'react';
+
 import { Button } from '../';
 import { LoginModalContext } from '../../context';
+import { HEADER_LINKS } from '../../constants';
+
 import './Header.css';
 
 const HeaderNav = () => {
@@ -8,26 +11,13 @@ const HeaderNav = () => {
     <nav className='header__nav'>
       <div className='container'>
         <ul className='header__nav-list'>
-          <li className='header__nav-item'>
-            <a href='#' className='header__nav-link'>
-              Прямой эфир
-            </a>
-          </li>
-          <li className='header__nav-item'>
-            <a href='#' className='header__nav-link'>
-              Франшиза
-            </a>
-          </li>
-          <li className='header__nav-item'>
-            <a href='#' className='header__nav-link'>
-              О нас
-            </a>
-          </li>
-          <li className='header__nav-item'>
-            <a href='#' className='header__nav-link'>
-              Контакты
-            </a>
-          </li>
+          {HEADER_LINKS.map(({ title, link }, index) => (
+            <li className='header__nav-item' key={index}>
+              <a href={link} className='header__nav-link'>
+                {title}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
@@ -35,15 +25,14 @@ const HeaderNav = () => {
 };
 
 const Header = () => {
-  const { isLoginModalVisible, setLoginModalVisible } =
-    useContext(LoginModalContext);
+  const { setLoginModalVisible } = useContext(LoginModalContext);
   return (
     <header>
       <HeaderNav />
       <div className='container'>
         <div className='header__content'>
           <div className='header__logo'>
-            <a href='#'>
+            <a href='/'>
               <img src='/icons/dodo-logo.svg' alt='' />
             </a>
           </div>
@@ -54,7 +43,7 @@ const Header = () => {
                 Ташкент
               </a>
             </p>
-            <p className='header__about-rate-text'>
+            <div className='header__about-rate-text'>
               43 мин
               <div className='dot'>
                 <div className='header__info'>
@@ -72,7 +61,7 @@ const Header = () => {
                     </span>
                   </div>
                   <div className='info__right'>
-                    <span className='info__big-text'>
+                    <div className='info__big-text'>
                       4.66
                       <ul className='stars-list'>
                         <li className='stars-list__item'>
@@ -91,7 +80,7 @@ const Header = () => {
                           <img src='/icons/star-half-fill.svg' alt='' />
                         </li>
                       </ul>
-                    </span>
+                    </div>
                     <span className='info__info__medium-text'>660 оценок</span>
                     <span className='info__text'>
                       Оценить заказ можно в мобильном приложении
@@ -106,7 +95,7 @@ const Header = () => {
               <div className='star'>
                 <img src='/icons/header-star.svg' alt='' />
               </div>
-            </p>
+            </div>
           </div>
           <div className='header__contacts'>
             <p className='header__phone-number'>
@@ -129,7 +118,7 @@ const Header = () => {
               <p className='coin__text'>Мои акции</p>
             </a>
 
-            <a className='coin__link' href='#'>
+            <a className='coin__link' href={'/profile'}>
               <div className='coin__icon'>
                 <img src='/icons/profile.svg' alt='' />
               </div>

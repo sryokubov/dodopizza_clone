@@ -20,7 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   oldPrice,
 }: ProductCardProps) => {
   const formattedPrice = formatPrice(price);
-  const { isModalVisible, setIsModalVisible } = useContext(ModalContext);
+  const { setIsModalVisible } = useContext(ModalContext);
   return (
     <div
       className={styles.card}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import styles from './Switch.module.scss';
 
 interface Option {
@@ -23,9 +23,15 @@ const Switch = ({ options, defaultValue, onClick }: SwitchProps) => {
     return options.filter((option) => option.value === value)[0].id;
   }
 
-  const onSwitchOptionClick = (e: any) => {
-    setSelectedOption(e.target.dataset.order);
-    onClick(e);
+  const onSwitchOptionClick = (e: React.SyntheticEvent<HTMLLabelElement>) => {
+    if (!(e.target instanceof HTMLLabelElement)) {
+      return;
+    }
+
+    if (e.target.dataset.order) {
+      setSelectedOption(Number(e.target.dataset.order));
+      onClick(e);
+    }
   };
 
   return (
@@ -38,7 +44,7 @@ const Switch = ({ options, defaultValue, onClick }: SwitchProps) => {
         }}
       ></div>
       {options.map(({ id, title, value }) => (
-        <>
+        <Fragment key={id}>
           <input
             className={styles.switch__option_input}
             type='radio'
@@ -53,7 +59,7 @@ const Switch = ({ options, defaultValue, onClick }: SwitchProps) => {
           >
             {title}
           </label>
-        </>
+        </Fragment>
       ))}
     </div>
   );

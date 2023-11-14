@@ -99,8 +99,7 @@ const Modal = () => {
   const [size, setSize] = useState('medium');
   const [isBigCircleVisible, setBigCircleVisible] = useState(true);
   const [isSmallCircleVisible, setSmallCircleVisible] = useState(false);
-  const [pizzaSizeInfo, setPizzaSize] = useState('30');
-  const [doughTypeInfo, setDoughTypeInfo] = useState('традиционное');
+  const setDoughTypeInfo = useState('традиционное')[1];
 
   const pizzaImage = filterPizzaImage(size, doughType);
 
@@ -283,6 +282,7 @@ const Modal = () => {
                 <div className={styles.modal__card_container}>
                   {modalCardData.map((card) => (
                     <ModalCard
+                      key={card.title}
                       imageSrc={card.imgSrc}
                       title={card.title}
                       price={card.price}
