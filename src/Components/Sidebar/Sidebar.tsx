@@ -4,7 +4,11 @@ import classNames from 'classnames';
 import styles from './Sidebar.module.scss';
 import { SidebarContext } from '../../context';
 
-const Sidebar = () => {
+interface SidebarProps {
+  children: JSX.Element;
+}
+
+const Sidebar = (props: SidebarProps) => {
   const { isSidebarVisible, setIsSidebarVisible } = useContext(SidebarContext);
   useEffect(() => {
     if (isSidebarVisible) {
@@ -32,6 +36,7 @@ const Sidebar = () => {
         <div className={styles.sidebar__close_btn} onClick={onClickHandler}>
           <img src='/icons/cross-icon.svg' alt='' />
         </div>
+        {props.children}
       </div>
     </div>
   );

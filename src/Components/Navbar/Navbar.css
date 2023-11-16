@@ -18,10 +18,11 @@
 /* .nav__item {
 } */
 
-.nav__item a {
+.nav__item {
   padding: 22px 0;
-  font: 600 normal 14px/1 "Dodo Rounded";
+  font: 600 normal 14px/1 'Dodo Rounded';
   transition: color 0.25s ease 0s; /* padding 0.25s ease 0s */
+  cursor: pointer;
 }
 
 .nav__item:hover {

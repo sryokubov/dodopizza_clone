@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { Modal, Navbar, ProductCard, Sidebar, LoginModal } from '../Components';
+import { Modal, Navbar, ProductCard, Sidebar, LoginModal } from '../components';
 
-import '../base.css';
+import '../base.scss';
 import { SidebarContext } from '../context';
 
 export interface Pizza {
@@ -18,6 +18,24 @@ export interface Pizza {
 //     <ProductCard title={pizza.title} price={pizza.price} key={pizza.title} />
 //   ));
 // };
+
+const sidebarContent = (
+  <>
+    <img src='/images/dog_pizza.svg' alt='' style={{ maxWidth: '314px' }} />
+    <h2>Ой, пусто!</h2>
+    <div className='empty-cart-text'>
+      Ваша корзина пуста, откройте «Меню» и выберите понравившийся товар. Мы
+      доставим ваш заказ от{' '}
+      <span className='money '>
+        <span className='money__value'>45&nbsp;000</span>
+        <span className='money__currency money__currency_on-the-right'>
+          {' '}
+          сум
+        </span>
+      </span>
+    </div>
+  </>
+);
 
 const HomePage = () => {
   // const [pizzas, setPizzas] = useState<Pizza[]>([]);
@@ -66,7 +84,7 @@ const HomePage = () => {
           oldPrice={141}
         />
       </div>
-      <Sidebar />
+      <Sidebar>{sidebarContent}</Sidebar>
       <Modal />
       <LoginModal />
     </>

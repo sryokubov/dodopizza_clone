@@ -1,6 +1,11 @@
 import { useState } from 'react';
-import { Header } from '../Components';
-import { ModalContext, SidebarContext, LoginModalContext } from '../context';
+import { Header } from '../components';
+import {
+  ModalContext,
+  SidebarContext,
+  LoginModalContext,
+  AuthContext,
+} from '../context';
 
 interface LayoutPropsInterface {
   children: JSX.Element;
@@ -13,20 +18,22 @@ const Layout = (props: LayoutPropsInterface) => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [isLoginModalVisible, setLoginModalVisible] = useState<boolean>(false);
 
-  const value = { isModalVisible, setIsModalVisible };
-  const value2 = { isSidebarVisible, setIsSidebarVisible };
-  const value3 = { isLoginModalVisible, setLoginModalVisible };
+  const modalContext = { isModalVisible, setIsModalVisible };
+  const sidebarContext = { isSidebarVisible, setIsSidebarVisible };
+  const loginContext = { isLoginModalVisible, setLoginModalVisible };
 
   return (
     <>
-      <ModalContext.Provider value={value}>
-        <SidebarContext.Provider value={value2}>
-          <LoginModalContext.Provider value={value3}>
-            <Header />
-            {children}
-          </LoginModalContext.Provider>
-        </SidebarContext.Provider>
-      </ModalContext.Provider>
+      <AuthContext.Provider value={{ isLoggedIn: false }}>
+        <ModalContext.Provider value={modalContext}>
+          <SidebarContext.Provider value={sidebarContext}>
+            <LoginModalContext.Provider value={loginContext}>
+              <Header />
+              {children}
+            </LoginModalContext.Provider>
+          </SidebarContext.Provider>
+        </ModalContext.Provider>
+      </AuthContext.Provider>
     </>
   );
 };

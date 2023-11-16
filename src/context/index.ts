@@ -35,3 +35,5 @@ export const LoginModalContext = createContext<LoginModalContextInterface>({
   isLoginModalVisible: false,
   setLoginModalVisible: () => {},
 });
+
+export const AuthContext = createContext({ isLoggedIn: false });
