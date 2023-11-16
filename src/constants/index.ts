@@ -60,6 +60,6 @@ export const SECTION_NAVIGATION_LINKS: SectionNavigationLink[] = [
   },
   {
     title: 'Акции',
-    link: '#promo',
+    link: '/promo',
   },
 ];
