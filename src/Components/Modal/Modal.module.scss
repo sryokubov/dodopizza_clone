@@ -4,10 +4,9 @@
   top: 0;
   left: 0;
   opacity: 0;
+  z-index: 10;
   transition: all 150ms ease 0s;
-  // & * {
-  //   visibility: inherit !important;
-  // }
+
   &.visible {
     visibility: visible;
     opacity: 1;
@@ -60,11 +59,13 @@
       height: 25px;
     }
   }
+
   &__left {
     position: relative;
     width: 530px;
     max-height: 610px;
   }
+
   &__img {
     width: 95%;
     margin: 5% 0 0 5%;
@@ -72,6 +73,7 @@
       transition: margin 0.25s ease-in-out 0s;
     }
   }
+
   &__svg_icon {
     position: absolute;
     z-index: 2;
@@ -79,10 +81,8 @@
     left: 40px;
     width: 450px;
     display: none;
-    // visibility: hidden;
     &.visible {
       display: block;
-      // visibility: visible;
     }
     &_small {
       position: absolute;
@@ -91,10 +91,8 @@
       left: 73px;
       width: 382px;
       display: none;
-      // visibility: hidden;
       &.visible {
         display: block;
-        // visibility: visible;
       }
     }
   }
@@ -130,6 +128,7 @@
       padding: 0 19px 0 30px;
     }
   }
+
   &__title {
     font: 500 normal 24px/28px 'Dodo Rounded';
   }
@@ -154,11 +153,13 @@
     font: 600 normal 20px/24px 'Dodo Rounded';
     margin-bottom: 12px;
   }
+
   &__card_container {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
   }
+
   &__button {
     margin: 24px 30px 30px;
   }
