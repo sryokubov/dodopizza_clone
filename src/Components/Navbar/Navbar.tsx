@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { Button } from '..';
 
 import { SECTION_NAVIGATION_LINKS } from '../../constants';
-import './Navbar.css';
+import styles from './Navbar.module.scss';
 
 export interface NavbarProps {
   setIsSidebarVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -28,23 +28,25 @@ const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
   return (
     <nav
       ref={navRef}
-      className={classNames('nav', { ['nav_on-scroll']: !isNavLogHidden })}
+      className={classNames(styles.nav, {
+        [styles['nav_on-scroll']]: !isNavLogHidden,
+      })}
     >
       <div className='container'>
-        <div className='nav__content'>
-          <div className='nav__logo'>
+        <div className={styles.nav__content}>
+          <div className={styles.nav__logo}>
             <a href='#top'>
               <img src='/icons/dodo-square-logo.png' alt='' />
             </a>
           </div>
-          <ul className='nav__list'>
+          <ul className={styles.nav__list}>
             {SECTION_NAVIGATION_LINKS.map(({ link, title }) => (
-              <li className='nav__item' key={link}>
+              <li className={styles.nav__item} key={link}>
                 <Link to={link}>{title}</Link>
               </li>
             ))}
           </ul>
-          <div className='nav__btn'>
+          <div className={styles.nav__btn}>
             <Button
               type='primary-btn'
               size='medium-btn'
