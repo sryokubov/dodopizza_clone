@@ -1,16 +1,27 @@
-import "./Button.css";
+import './Button.scss';
 
 interface IButtonProps {
   type: string;
   size: string;
   text: string;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
-const Button = ({ type, size, text, onClick }: IButtonProps) => {
+const Button = ({
+  type,
+  size,
+  text,
+  disabled = false,
+  onClick,
+}: IButtonProps) => {
   return (
     <div>
-      <button className={"btn " + size + " " + type} onClick={onClick}>
+      <button
+        className={'btn ' + size + ' ' + type}
+        onClick={onClick}
+        disabled={disabled}
+      >
         {text}
       </button>
     </div>

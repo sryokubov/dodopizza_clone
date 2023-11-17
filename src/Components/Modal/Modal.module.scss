@@ -4,10 +4,16 @@
   top: 0;
   left: 0;
   opacity: 0;
-
+  transition: all 150ms ease 0s;
+  // & * {
+  //   visibility: inherit !important;
+  // }
   &.visible {
     visibility: visible;
     opacity: 1;
+    .modal__window {
+      transform: scale(1);
+    }
   }
 
   &__background {
@@ -26,11 +32,14 @@
     position: fixed;
     left: calc(50% - $width / 2);
     top: calc(50% - $height / 2);
+    display: flex;
     width: $width;
     height: $height;
     border-radius: $border-radius;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
     background-color: #fff;
+    transform: scale(0.96);
+    transition: all 150ms ease 0s;
   }
 
   &__close_btn {
@@ -39,6 +48,8 @@
     position: absolute;
     right: -38px;
     top: 13px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out 0s;
 
     &:hover {
       transform: scale(1.11);
@@ -48,6 +59,108 @@
       width: 25px;
       height: 25px;
     }
+  }
+  &__left {
+    position: relative;
+    width: 530px;
+    max-height: 610px;
+  }
+  &__img {
+    width: 95%;
+    margin: 5% 0 0 5%;
+    &_box {
+      transition: margin 0.25s ease-in-out 0s;
+    }
+  }
+  &__svg_icon {
+    position: absolute;
+    z-index: 2;
+    top: 80px;
+    left: 40px;
+    width: 450px;
+    display: none;
+    // visibility: hidden;
+    &.visible {
+      display: block;
+      // visibility: visible;
+    }
+    &_small {
+      position: absolute;
+      z-index: 2;
+      top: 113px;
+      left: 73px;
+      width: 382px;
+      display: none;
+      // visibility: hidden;
+      &.visible {
+        display: block;
+        // visibility: visible;
+      }
+    }
+  }
+
+  &__right {
+    width: 395px;
+    height: 610px;
+    padding: 30px 3px 0 0;
+    background-color: rgb(252, 252, 252);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 478px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 8px;
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: lighten(rgba(57, 57, 57, 0.3), 40%);
+      border-radius: 4px;
+      &:hover {
+        background-color: rgba(57, 57, 57, 0.3);
+      }
+    }
+
+    &_content {
+      padding: 0 19px 0 30px;
+    }
+  }
+  &__title {
+    font: 500 normal 24px/28px 'Dodo Rounded';
+  }
+
+  &__info {
+    color: #5c6370;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  &__info {
+    padding: 1px 0 5px;
+    color: #5c6370;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__card_box {
+    padding: 14px 0px 24px;
+  }
+
+  &__card_title {
+    font: 600 normal 20px/24px 'Dodo Rounded';
+    margin-bottom: 12px;
+  }
+  &__card_container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  &__button {
+    margin: 24px 30px 30px;
   }
 }
 

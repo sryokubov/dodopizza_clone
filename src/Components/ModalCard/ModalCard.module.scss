@@ -1,0 +1,49 @@
+.card {
+  border: 1px solid transparent;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 8px;
+  width: 106px;
+  height: 166px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: rgba(6, 5, 50, 0.12) 0px 4px 20px;
+  transition: box-shadow 150ms ease-out 0s, border 150ms;
+  &:hover {
+    box-shadow: rgba(6, 5, 50, 0.12) 0px 0px 8px;
+  }
+  .selected_icon {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    transition: opacity 150ms ease-out 0s;
+  }
+  &_selected {
+    box-shadow: rgba(6, 5, 50, 0.12) 0px 0px 0px;
+    border: 1px solid rgb(255, 105, 0);
+    .selected_icon {
+      opacity: 1;
+    }
+    &:hover {
+      box-shadow: rgba(6, 5, 50, 0.12) 0px 0px 0px;
+    }
+  }
+  &__img {
+    width: 90px;
+    height: 90px;
+  }
+  &__title {
+    text-align: center;
+    height: 32px;
+    font: 400 normal 12px/16px 'Dodo Rounded';
+  }
+  &__price {
+    margin: 4px;
+    font: 400 normal 16px/20px 'Dodo Rounded';
+  }
+}
