@@ -1,0 +1,22 @@
+.sidebar_empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__img {
+    max-width: 314px;
+    padding: 4px;
+  }
+  &__title {
+    font-size: 21px;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    line-height: 1.4;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__text {
+    white-space: pre-wrap;
+    font: 500 normal 14px/1.4 'Dodo Rounded';
+    text-align: center;
+  }
+}
