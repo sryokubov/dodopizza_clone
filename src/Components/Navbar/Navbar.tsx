@@ -1,4 +1,7 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+
 import { Button } from '..';
 
 import { SECTION_NAVIGATION_LINKS } from '../../constants';
@@ -9,12 +12,30 @@ export interface NavbarProps {
 }
 
 const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
+  const navRef = useRef<HTMLElement | undefined>();
+  const [isNavLogHidden, setIsNavLogHidden] = useState(true);
+  useEffect(() => {
+    document.addEventListener('scroll', () => {
+      if (navRef.current!.getBoundingClientRect().y === 0) {
+        setIsNavLogHidden(false);
+      } else {
+        setIsNavLogHidden(true);
+      }
+      console.log(navRef);
+    });
+  }, []);
+
   return (
-    <nav className='nav'>
+    <nav
+      ref={navRef}
+      className={classNames('nav', { ['nav_on-scroll']: !isNavLogHidden })}
+    >
       <div className='container'>
         <div className='nav__content'>
           <div className='nav__logo'>
-            <img src='/icons/dodo-square-logo.png' alt='' />
+            <a href='#top'>
+              <img src='/icons/dodo-square-logo.png' alt='' />
+            </a>
           </div>
           <ul className='nav__list'>
             {SECTION_NAVIGATION_LINKS.map(({ link, title }) => (

@@ -1,13 +1,34 @@
+.nav {
+  display: flex;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 58px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+}
+
 .nav__content {
   display: flex;
   align-items: center;
   overflow: hidden;
+  height: 100%;
 }
 
 .nav__logo {
   width: 36px;
   height: 36px;
-  margin-left: -52px; /* -36px default */
+  margin-left: -52px;
+  transition: all 0.25s ease 0s;
+}
+
+.nav_on-scroll {
+  box-shadow: rgba(6, 5, 50, 0.1) 0px 4px 30px;
+}
+
+.nav_on-scroll .nav__logo {
+  margin-left: 0;
 }
 
 .nav__list {
@@ -15,13 +36,10 @@
   align-items: center;
 }
 
-/* .nav__item {
-} */
-
 .nav__item {
   padding: 22px 0;
   font: 600 normal 14px/1 'Dodo Rounded';
-  transition: color 0.25s ease 0s; /* padding 0.25s ease 0s */
+  transition: color 0.25s ease 0s;
   cursor: pointer;
 }
 
@@ -39,8 +57,4 @@
 
 .nav__btn {
   margin-left: auto;
-}
-
-.abc {
-  background-color: black;
 }
