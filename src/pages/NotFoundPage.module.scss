@@ -1,0 +1,74 @@
+.page {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  &__logo {
+    height: 42.14px;
+    width: 235px;
+    &_box {
+      position: relative;
+    }
+  }
+  &__img {
+    position: absolute;
+    top: 57.5px;
+    right: 60px;
+    width: 50%;
+    z-index: -1;
+    transform: scale(2);
+    max-width: 582px;
+  }
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 3.75%;
+    width: 1280px;
+    height: 100%;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    margin: 80px 0 0;
+    font: 500 normal 36px/1.2 "Dodo Rounded";
+  }
+  &__text {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 12px;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+    padding: 12px 24px;
+    height: 48px;
+    width: 290px;
+    border: none;
+    border-radius: 9999px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: backround-color, color, 0.2s, easy-out;
+    color: #fff;
+    background-color: #ff6900;
+  }
+  &__details {
+    margin-top: 15px;
+    color: #5c6370;
+    font-size: 16px;
+    line-height: 1.25;
+    cursor: default;
+  }
+}
