@@ -2,13 +2,13 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { PhoneNumberUtil } from 'google-libphonenumber';
 import { PhoneInput, PhoneInputProps } from 'react-international-phone';
+import ReactCodeInput from 'react-code-input';
 
 import { Button } from '..';
 import { LoginModalContext } from '../../context';
 
 import 'react-international-phone/style.css';
 import styles from './LoginModal.module.scss';
-import ReactCodeInput from 'react-code-input';
 // import { reactCodeInput } from 'react-code-input/styles/style.scss';
 
 const phoneUtil = PhoneNumberUtil.getInstance();
@@ -19,6 +19,46 @@ const isPhoneValid = (phone: string) => {
   } catch (error) {
     return false;
   }
+};
+
+const selectorContainerStyles = {
+  display: 'flex',
+  gap: '8px',
+  width: '100%',
+};
+
+let inputStyles = {
+  height: '56px',
+  padding: '16px',
+  width: '100%',
+  border: '1px solid #000',
+  borderRadius: '12px',
+  font: "500 normal 16px/20px 'Dodo Rounded'",
+  backgroundColor: 'rgba(243, 243, 247, 0.26)',
+};
+
+const focusedInputStyles = {
+  height: '56px',
+  padding: '16px',
+  width: '100%',
+  border: '1px solid #ff6900',
+  borderRadius: '12px',
+  font: "500 normal 16px/20px 'Dodo Rounded'",
+  backgroundColor: 'rgba(243, 243, 247, 0.26)',
+  outline: 'none',
+};
+
+const countrySelectorStyles = {
+  buttonStyle: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '16px',
+    padding: '0 20px 0 16px',
+    height: '56px',
+    borderRadius: '12px',
+    border: '1px solid #e2e2e9',
+    backgroundColor: '#fff',
+  },
 };
 
 const LoginModal = () => {
@@ -36,6 +76,8 @@ const LoginModal = () => {
   const isValid = isPhoneValid(phone);
 
   const [modalState, setModalState] = useState<'login' | 'code'>('login');
+
+  const [stylesOnFocus, setStylesOnFocus] = useState(inputStyles);
 
   useEffect(() => {
     if (isLoginModalVisible) {
@@ -59,29 +101,28 @@ const LoginModal = () => {
           об акциях
         </p>
         <div className={styles.modal__select_phone_num}>
-          <div className={styles.modal__selector_container}>
-            <p className={styles.modal__selector_title}>Страна</p>
-            <button className={styles.modal__country_selector}>
-              <img className={styles.modal__flag_icon} />
-              <img src='/icons/arrow_down.svg' alt='' />
-            </button>
-          </div>
-          <div className={styles.modal__selector_container}>
-            <label>
-              <p className={styles.modal__selector_title}>Номер телефона</p>
-              <PhoneInput
-                className={styles.modal__phone_num}
-                ref={phoneInputRef}
-                placeholder='+998 99-999-99-99'
-                defaultCountry='uz'
-                value={phone}
-                onChange={() => {
-                  setPhone(phoneInputRef.current.value);
-                }}
-              />
-            </label>
-          </div>
+          {/* <img src='/icons/arrow_down.svg' alt='' /> */}
+
+          <p className={styles.modal__selector_title}>Страна</p>
+          <p className={styles.modal__selector_title}>Номер телефона</p>
         </div>
+        <PhoneInput
+          ref={phoneInputRef}
+          placeholder='+998 99-999-99-99'
+          defaultCountry='uz'
+          value={phone}
+          charAfterDialCode='-'
+          style={selectorContainerStyles}
+          inputStyle={stylesOnFocus}
+          countrySelectorStyleProps={countrySelectorStyles}
+          onFocus={() => {
+            setStylesOnFocus(focusedInputStyles);
+          }}
+          onChange={() => {
+            setPhone(phoneInputRef.current.value);
+          }}
+        />
+
         <div className={styles.modal__btn}>
           <Button
             text='Выслать код'
