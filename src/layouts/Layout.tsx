@@ -5,6 +5,7 @@ import {
   SidebarContext,
   LoginModalContext,
   AuthContext,
+  UModalContext,
 } from '../context';
 
 interface LayoutPropsInterface {
@@ -17,22 +18,26 @@ const Layout = (props: LayoutPropsInterface) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [isLoginModalVisible, setLoginModalVisible] = useState<boolean>(false);
+  const [isUModalVisible, setIsUModalVisible] = useState<boolean>(true);
 
   const modalContext = { isModalVisible, setIsModalVisible };
   const sidebarContext = { isSidebarVisible, setIsSidebarVisible };
   const loginContext = { isLoginModalVisible, setLoginModalVisible };
+  const umodalContext = { isUModalVisible, setIsUModalVisible };
 
   return (
     <>
       <AuthContext.Provider value={{ isLoggedIn: false }}>
-        <ModalContext.Provider value={modalContext}>
-          <SidebarContext.Provider value={sidebarContext}>
-            <LoginModalContext.Provider value={loginContext}>
-              <Header />
-              {children}
-            </LoginModalContext.Provider>
-          </SidebarContext.Provider>
-        </ModalContext.Provider>
+        <UModalContext.Provider value={umodalContext}>
+          <ModalContext.Provider value={modalContext}>
+            <SidebarContext.Provider value={sidebarContext}>
+              <LoginModalContext.Provider value={loginContext}>
+                <Header />
+                {children}
+              </LoginModalContext.Provider>
+            </SidebarContext.Provider>
+          </ModalContext.Provider>
+        </UModalContext.Provider>
       </AuthContext.Provider>
     </>
   );

@@ -1,0 +1,62 @@
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 10;
+  transition: all 150ms ease 0s;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    .modal__window {
+      transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+  }
+
+  &__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  &__window {
+    $padding: 32px;
+    $border-radius: 20px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    // width: $width;
+    min-height: 345px;
+    padding: $padding;
+    border-radius: $border-radius;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
+    background-color: #fff;
+    transform: translateX(-50%) translateY(-50%) scale(0.96);
+    transition: all 150ms ease 0s;
+  }
+
+  &__close_btn {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: -38px;
+    top: 13px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out 0s;
+
+    &:hover {
+      transform: scale(1.11);
+    }
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

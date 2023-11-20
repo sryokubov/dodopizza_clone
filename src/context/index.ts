@@ -21,6 +21,13 @@ interface LoginModalContextInterface {
     | (() => void);
 }
 
+interface UModalContextInterface {
+  isUModalVisible: boolean;
+  setIsUModalVisible:
+    | React.Dispatch<React.SetStateAction<boolean>>
+    | (() => void);
+}
+
 export const ModalContext = createContext<ModalContextInterface>({
   isModalVisible: false,
   setIsModalVisible: () => {},
@@ -34,6 +41,11 @@ export const SidebarContext = createContext<SidebarContextInterface>({
 export const LoginModalContext = createContext<LoginModalContextInterface>({
   isLoginModalVisible: false,
   setLoginModalVisible: () => {},
+});
+
+export const UModalContext = createContext<UModalContextInterface>({
+  isUModalVisible: false,
+  setIsUModalVisible: () => {},
 });
 
 export const AuthContext = createContext({ isLoggedIn: false });

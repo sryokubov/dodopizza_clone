@@ -8,3 +8,4 @@ export { default as ModalCard } from './ModalCard';
 export { default as LoginModal } from './LoginModal';
 export { default as Switch } from './Switch';
 export { default as SidebarEmpty } from './SidebarEmpty';
+export { default as UModal } from './UModal';
