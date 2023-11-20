@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
-import { Button } from '..';
+import { Button, Notification } from '..';
 
 import { SECTION_NAVIGATION_LINKS } from '../../constants';
 import styles from './Navbar.module.scss';
@@ -21,7 +21,6 @@ const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
       } else {
         setIsNavLogHidden(true);
       }
-      console.log(navRef);
     });
   }, []);
 
@@ -57,6 +56,13 @@ const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
               Корзина
             </Button>
           </div>
+        </div>
+        <div style={{ position: 'absolute', right: '0px', top: '76px' }}>
+          <Notification
+            title='Слоеные палочки с ананасами и брусникой'
+            amount={8}
+          />
+          <Notification title='Пепперони фреш' amount={30} />
         </div>
       </div>
     </nav>

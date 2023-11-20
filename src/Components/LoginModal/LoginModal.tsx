@@ -22,7 +22,10 @@ const isPhoneValid = (phone: string) => {
 };
 
 const LoginModal = () => {
-  const onClickHandler = () => setLoginModalVisible(false);
+  const onClickHandler = () => {
+    setModalState('login');
+    setLoginModalVisible(false);
+  };
   const { isLoginModalVisible, setLoginModalVisible } =
     useContext(LoginModalContext);
 
@@ -48,12 +51,6 @@ const LoginModal = () => {
     }
   }, [isLoginModalVisible]);
 
-  useEffect(() => {
-    if (modalState === 'login') {
-      phoneInputRef.current!.focus();
-    }
-  });
-
   const Login = () => {
     return (
       <>
@@ -70,6 +67,7 @@ const LoginModal = () => {
           placeholder='+998 99-999-99-99'
           defaultCountry='uz'
           value={phone}
+          autoFocus={true}
           className={styles.modal__phone_num_container}
           inputClassName={styles.modal__phone_input}
           countrySelectorStyleProps={{
@@ -85,8 +83,8 @@ const LoginModal = () => {
               listItemDialCodeClassName: styles.modal__dropdown_dial_code,
             },
           }}
-          onChange={() => {
-            setPhone(phoneInputRef.current.value);
+          onChange={(value) => {
+            setPhone(value);
           }}
         />
 
@@ -111,7 +109,7 @@ const LoginModal = () => {
       <>
         <p className={styles.modal__text}>Код отправили сообщением на</p>
         <p className={styles.modal__phone_num_text}>
-          {phone}
+          {phoneInputRef.current!.value}
           <button
             className={styles.modal__change_phone_num_text}
             onClick={() => setModalState('login')}
