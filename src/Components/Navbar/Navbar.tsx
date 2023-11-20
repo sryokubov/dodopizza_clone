@@ -50,11 +50,12 @@ const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
             <Button
               type='primary-btn'
               size='medium-btn'
-              text='Корзина'
               onClick={() => {
                 setIsSidebarVisible(true);
               }}
-            />
+            >
+              Корзина
+            </Button>
           </div>
         </div>
       </div>

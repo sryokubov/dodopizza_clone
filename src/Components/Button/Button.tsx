@@ -3,7 +3,7 @@ import './Button.scss';
 interface IButtonProps {
   type: string;
   size: string;
-  text: string;
+  children: JSX.Element | string;
   disabled?: boolean;
   onClick?: () => void;
 }
@@ -11,7 +11,7 @@ interface IButtonProps {
 const Button = ({
   type,
   size,
-  text,
+  children,
   disabled = false,
   onClick,
 }: IButtonProps) => {
@@ -22,7 +22,7 @@ const Button = ({
         onClick={onClick}
         disabled={disabled}
       >
-        {text}
+        {children}
       </button>
     </div>
   );

@@ -21,40 +21,6 @@ const isPhoneValid = (phone: string) => {
   }
 };
 
-// let inputStyles = {
-//   height: '56px',
-//   padding: '16px',
-//   width: '100%',
-//   border: '1px solid #000',
-//   borderRadius: '12px',
-//   font: "500 normal 16px/20px 'Dodo Rounded'",
-//   backgroundColor: 'rgba(243, 243, 247, 0.26)',
-// };
-
-// const focusedInputStyles = {
-//   height: '56px',
-//   padding: '16px',
-//   width: '100%',
-//   border: '1px solid #ff6900',
-//   borderRadius: '12px',
-//   font: "500 normal 16px/20px 'Dodo Rounded'",
-//   backgroundColor: 'rgba(243, 243, 247, 0.26)',
-//   outline: 'none',
-// };
-
-// const countrySelectorStyles = {
-//   buttonStyle: {
-//     display: 'flex',
-//     alignItems: 'center',
-//     gap: '16px',
-//     padding: '0 20px 0 16px',
-//     height: '56px',
-//     borderRadius: '12px',
-//     border: '1px solid #e2e2e9',
-//     backgroundColor: '#fff',
-//   },
-// };
-
 const LoginModal = () => {
   const onClickHandler = () => setLoginModalVisible(false);
   const { isLoginModalVisible, setLoginModalVisible } =
@@ -71,13 +37,14 @@ const LoginModal = () => {
 
   const [modalState, setModalState] = useState<'login' | 'code'>('login');
 
-  // const [stylesOnFocus, setStylesOnFocus] = useState(inputStyles);
-
   useEffect(() => {
     if (isLoginModalVisible) {
+      // Предлагаю написать функцию в utilities isScrollBlocked(true/false) и вызвать здесь
+      document.body.style.paddingRight = '17px';
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '0px';
     }
   }, [isLoginModalVisible]);
 
@@ -95,8 +62,6 @@ const LoginModal = () => {
           об акциях
         </p>
         <div className={styles.modal__phone_num_container}>
-          {/* <img src='/icons/arrow_down.svg' alt='' /> */}
-
           <p className={styles.modal__selector_title}>Страна</p>
           <p className={styles.modal__selector_title}>Номер телефона</p>
         </div>
@@ -127,14 +92,15 @@ const LoginModal = () => {
 
         <div className={styles.modal__btn}>
           <Button
-            text='Выслать код'
             type='primary-btn'
             size='big-btn'
             disabled={!isValid}
             onClick={() => {
               setModalState('code');
             }}
-          />
+          >
+            Выслать код
+          </Button>
         </div>
       </>
     );
@@ -159,7 +125,9 @@ const LoginModal = () => {
           <p className={styles.modal__error_text}>Неверный код</p>
         </div>
         <div className={styles.modal__btn}>
-          <Button type='primary-btn' size='big-btn' text='Получить новый код' />
+          <Button type='primary-btn' size='big-btn'>
+            Получить новый код
+          </Button>
         </div>
       </>
     );

@@ -49,7 +49,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </span>
           )}
         </div>
-        <Button type='secondary-btn' size='medium-btn' text='Выбрать' />
+        <Button type='secondary-btn' size='medium-btn'>
+          Выбрать
+        </Button>
       </div>
     </div>
   );

@@ -293,11 +293,9 @@ const Modal = () => {
             </div>
           </div>
           <div className={styles.modal__button}>
-            <Button
-              type='primary-btn'
-              size='big-btn'
-              text='Добавить в корзину за 55 000'
-            />
+            <Button type='primary-btn' size='big-btn'>
+              Добавить в корзину за 55 000
+            </Button>
           </div>
         </div>
       </div>

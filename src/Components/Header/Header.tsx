@@ -153,8 +153,9 @@ const Header = () => {
                 }}
                 type='small-btn'
                 size='tertiary-btn'
-                text='Войти'
-              />
+              >
+                Войти
+              </Button>
             </div>
           )}
         </div>
