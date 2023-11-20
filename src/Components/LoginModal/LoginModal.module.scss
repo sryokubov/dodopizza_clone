@@ -53,59 +53,110 @@
     font: 600 normal 16px/20px 'Dodo Rounded';
     color: #5c6370;
   }
-  &__select_phone_num {
-    display: flex;
-    gap: 8px;
-    margin: 24px 0 0;
-    width: 100%;
+  &__phone_num {
+    &_container {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+    &_text {
+      font: 600 normal 16px/20px 'Dodo Rounded';
+    }
   }
   &__selector_title {
+    margin-top: 24px;
     font: 500 normal 14px/18px 'Dodo Rounded';
     margin-bottom: 8px;
     color: #5c6370;
     &:first-child {
-      width: 82px;
+      width: 101px;
     }
   }
   &__country_selector {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 0 20px 0 16px;
-    height: 56px;
-    border-radius: 12px;
+    &_box {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    width: 101px;
+    padding: 0 20px 0 16px !important;
+    height: 56px !important;
+    border-radius: 12px !important;
     border: 1px solid #e2e2e9;
-    background-color: #fff;
+    --react-international-phone-country-selector-background-color: #fff;
+    --react-international-phone-country-selector-background-color-hover: #fff;
+    --react-international-phone-country-selector-arrow-size: 0px;
   }
-  &__flag_icon {
-    width: 29.2px;
-    height: 20px;
-    border: 1px solid #d3d5de;
-    border-radius: 2px;
+  &__flag {
+    &_icon {
+      margin: 0;
+      width: 29.2px;
+      border-radius: 2px;
+    }
+    &_arrow {
+      content: '';
+      width: 18px;
+      height: 9px;
+      background: url('/icons/arrow_down.svg');
+    }
   }
-  // Delete ==>
-  &__phone_num {
-    height: 56px;
-    padding: 16px;
+  &__phone_input {
+    padding: 16px !important;
     width: 100%;
-    border: 1px solid rgb(226, 226, 233);
-    border-radius: 12px;
-    font: 500 normal 16px/20px 'Dodo Rounded';
-    background-color: rgba(243, 243, 247, 0.26);
-    // <== Delete
+    --react-international-phone-height: 56px;
+    --react-international-phone-border-radius: 12px;
+    border-bottom-left-radius: 12px !important;
+    border-top-left-radius: 12px !important;
+    --react-international-phone-border-color: rgb(226, 226, 233);
+    --react-international-phone-font-size: 16px;
+    line-height: 20px !important;
+    --react-international-phone-text-color: #000;
     &:focus {
       border-color: #ff6900;
       outline: none;
     }
-    &_text {
-      margin-bottom: 24px;
-      font: 600 normal 16px/20px 'Dodo Rounded';
-      color: #000;
+  }
+
+  &__dropdown {
+    &_container {
+      margin-top: 20px;
+      padding: 0;
+      width: 345px;
+      height: 190px;
+      border-radius: 12px;
+      --react-international-phone-dropdown-shadow: rgba(0, 0, 0, 0.05) 0px 9px
+          28px 8px,
+        rgba(0, 0, 0, 0.08) 0px 6px 16px, rgba(0, 0, 0, 0.12) 0px 3px 6px -4px;
+    }
+    &_list {
+      &_item {
+        padding: 6px 12px !important;
+        --react-international-phone-dropdown-item-height: 38px;
+        --react-international-phone-dropdown-item-font-size: 16px;
+        outline: none;
+        &:hover {
+          background: rgb(243, 243, 247);
+          // border-radius: 0px;
+        }
+      }
+    }
+    &_flag {
+      width: 23px;
+      border-radius: 2px;
+    }
+    &_country_name {
+      font-weight: 500;
+    }
+    &_dial_code {
+      --react-international-phone-dropdown-item-text-color: #5c6370;
+      font-weight: 500;
     }
   }
+
   &__btn {
     margin-top: auto;
   }
+
   &__change_phone_num_text {
     margin-left: 8px;
     border: 0;
@@ -136,6 +187,9 @@
       & input {
         border-color: rgb(255, 59, 48) !important;
         color: rgb(255, 59, 48) !important;
+        &:focus {
+          border-color: rgb(255, 59, 48) !important;
+        }
       }
       .modal__error_text {
         visibility: visible !important;

@@ -21,45 +21,39 @@ const isPhoneValid = (phone: string) => {
   }
 };
 
-const selectorContainerStyles = {
-  display: 'flex',
-  gap: '8px',
-  width: '100%',
-};
+// let inputStyles = {
+//   height: '56px',
+//   padding: '16px',
+//   width: '100%',
+//   border: '1px solid #000',
+//   borderRadius: '12px',
+//   font: "500 normal 16px/20px 'Dodo Rounded'",
+//   backgroundColor: 'rgba(243, 243, 247, 0.26)',
+// };
 
-let inputStyles = {
-  height: '56px',
-  padding: '16px',
-  width: '100%',
-  border: '1px solid #000',
-  borderRadius: '12px',
-  font: "500 normal 16px/20px 'Dodo Rounded'",
-  backgroundColor: 'rgba(243, 243, 247, 0.26)',
-};
+// const focusedInputStyles = {
+//   height: '56px',
+//   padding: '16px',
+//   width: '100%',
+//   border: '1px solid #ff6900',
+//   borderRadius: '12px',
+//   font: "500 normal 16px/20px 'Dodo Rounded'",
+//   backgroundColor: 'rgba(243, 243, 247, 0.26)',
+//   outline: 'none',
+// };
 
-const focusedInputStyles = {
-  height: '56px',
-  padding: '16px',
-  width: '100%',
-  border: '1px solid #ff6900',
-  borderRadius: '12px',
-  font: "500 normal 16px/20px 'Dodo Rounded'",
-  backgroundColor: 'rgba(243, 243, 247, 0.26)',
-  outline: 'none',
-};
-
-const countrySelectorStyles = {
-  buttonStyle: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '16px',
-    padding: '0 20px 0 16px',
-    height: '56px',
-    borderRadius: '12px',
-    border: '1px solid #e2e2e9',
-    backgroundColor: '#fff',
-  },
-};
+// const countrySelectorStyles = {
+//   buttonStyle: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '16px',
+//     padding: '0 20px 0 16px',
+//     height: '56px',
+//     borderRadius: '12px',
+//     border: '1px solid #e2e2e9',
+//     backgroundColor: '#fff',
+//   },
+// };
 
 const LoginModal = () => {
   const onClickHandler = () => setLoginModalVisible(false);
@@ -77,7 +71,7 @@ const LoginModal = () => {
 
   const [modalState, setModalState] = useState<'login' | 'code'>('login');
 
-  const [stylesOnFocus, setStylesOnFocus] = useState(inputStyles);
+  // const [stylesOnFocus, setStylesOnFocus] = useState(inputStyles);
 
   useEffect(() => {
     if (isLoginModalVisible) {
@@ -100,23 +94,31 @@ const LoginModal = () => {
           Подарим подарок на день рождения, сохраним адрес доставки и расскажем
           об акциях
         </p>
-        <div className={styles.modal__select_phone_num}>
+        <div className={styles.modal__phone_num_container}>
           {/* <img src='/icons/arrow_down.svg' alt='' /> */}
 
           <p className={styles.modal__selector_title}>Страна</p>
           <p className={styles.modal__selector_title}>Номер телефона</p>
         </div>
         <PhoneInput
-          ref={phoneInputRef}
+          inputRef={phoneInputRef}
           placeholder='+998 99-999-99-99'
           defaultCountry='uz'
           value={phone}
-          charAfterDialCode='-'
-          style={selectorContainerStyles}
-          inputStyle={stylesOnFocus}
-          countrySelectorStyleProps={countrySelectorStyles}
-          onFocus={() => {
-            setStylesOnFocus(focusedInputStyles);
+          className={styles.modal__phone_num_container}
+          inputClassName={styles.modal__phone_input}
+          countrySelectorStyleProps={{
+            buttonContentWrapperClassName: styles.modal__country_selector_box,
+            buttonClassName: styles.modal__country_selector,
+            flagClassName: styles.modal__flag_icon,
+            dropdownArrowClassName: styles.modal__flag_arrow,
+            dropdownStyleProps: {
+              className: styles.modal__dropdown_container,
+              listItemClassName: styles.modal__dropdown_list_item,
+              listItemFlagClassName: styles.modal__dropdown_flag,
+              listItemCountryNameClassName: styles.modal__dropdown_country_name,
+              listItemDialCodeClassName: styles.modal__dropdown_dial_code,
+            },
           }}
           onChange={() => {
             setPhone(phoneInputRef.current.value);
