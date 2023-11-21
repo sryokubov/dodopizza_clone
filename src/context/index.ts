@@ -28,6 +28,13 @@ interface UModalContextInterface {
     | (() => void);
 }
 
+interface ProductsAmountInterface {
+  productsAmount: number;
+  setProductsAmount:
+    | React.Dispatch<React.SetStateAction<number>>
+    | (() => void);
+}
+
 export const ModalContext = createContext<ModalContextInterface>({
   isModalVisible: false,
   setIsModalVisible: () => {},
@@ -49,3 +56,8 @@ export const UModalContext = createContext<UModalContextInterface>({
 });
 
 export const AuthContext = createContext({ isLoggedIn: false });
+
+export const ProductsAmountContext = createContext<ProductsAmountInterface>({
+  productsAmount: 0,
+  setProductsAmount: () => {},
+});

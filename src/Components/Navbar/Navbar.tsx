@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { Button, Notification } from '..';
 
 import { SECTION_NAVIGATION_LINKS } from '../../constants';
+import { ProductsAmountContext } from '../../context';
 import styles from './Navbar.module.scss';
 
 export interface NavbarProps {
@@ -14,6 +15,7 @@ export interface NavbarProps {
 const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
   const navRef = useRef<HTMLElement | undefined>();
   const [isNavLogHidden, setIsNavLogHidden] = useState(true);
+
   useEffect(() => {
     document.addEventListener('scroll', () => {
       if (navRef.current!.getBoundingClientRect().y === 0) {
@@ -23,7 +25,7 @@ const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
       }
     });
   }, []);
-
+  const { productsAmount } = useContext(ProductsAmountContext);
   return (
     <nav
       ref={navRef}
@@ -53,7 +55,23 @@ const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
                 setIsSidebarVisible(true);
               }}
             >
-              Корзина
+              <span>Корзина</span>
+              <>
+                {Boolean(productsAmount) && (
+                  <>
+                    <div className={styles.nav__stick}></div>
+                    <p id='quantity' className={styles.nav__quantity}>
+                      {productsAmount}
+                    </p>
+                    <img
+                      id='nav-arrow-right'
+                      className={styles.nav__arrow}
+                      src='/icons/arrow-right.svg'
+                      alt=''
+                    />
+                  </>
+                )}
+              </>
             </Button>
           </div>
         </div>

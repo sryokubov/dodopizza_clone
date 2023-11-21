@@ -47,4 +47,33 @@
   &__btn {
     margin-left: auto;
   }
+  &__stick {
+    width: 2px;
+    height: 24px;
+    margin: 0px 12px;
+    background: #ffffff;
+    opacity: 0.4;
+  }
+  &__quantity {
+    width: 14px;
+    text-align: center;
+    position: relative;
+    left: -1px;
+    transition: transform 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s;
+  }
+  &__arrow {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    display: inline-block;
+    width: 14px;
+    height: 11px;
+    transition: transform 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s;
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+}
+
+#nav-arrow-right {
+  visibility: hidden;
 }
