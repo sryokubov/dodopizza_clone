@@ -9,6 +9,8 @@ import { LoginModalContext } from '../../context';
 
 import 'react-international-phone/style.css';
 import styles from './LoginModal.module.scss';
+import { AuthService } from '../../services/auth/AuthService';
+import { OTP_CODE_LENGTH } from '../../constants';
 // import { reactCodeInput } from 'react-code-input/styles/style.scss';
 
 const phoneUtil = PhoneNumberUtil.getInstance();
@@ -22,6 +24,8 @@ const isPhoneValid = (phone: string) => {
 };
 
 const LoginModal = () => {
+  const authService = useRef(new AuthService());
+
   const onClickHandler = () => {
     setModalState('login');
     setLoginModalVisible(false);
@@ -95,6 +99,7 @@ const LoginModal = () => {
             disabled={!isValid}
             onClick={() => {
               setModalState('code');
+              authService.current.sendPhoneNumber(phone);
             }}
           >
             Выслать код
@@ -118,8 +123,20 @@ const LoginModal = () => {
           </button>
         </p>
         {/* Для дефолтного стиля надо удалить styles.error на следующей строке */}
-        <div className={classNames(styles.modal__code_inputs, styles.error)}>
-          <ReactCodeInput name='code_input' inputMode='tel' />
+        <div
+          className={classNames(
+            styles.modal__code_inputs //styles.error
+          )}
+        >
+          <ReactCodeInput
+            name='code_input'
+            inputMode='tel'
+            onChange={(val) => {
+              if (val.length === OTP_CODE_LENGTH) {
+                authService.current.sendOTPCode(val);
+              }
+            }}
+          />
           <p className={styles.modal__error_text}>Неверный код</p>
         </div>
         <div className={styles.modal__btn}>

@@ -63,3 +63,5 @@ export const SECTION_NAVIGATION_LINKS: SectionNavigationLink[] = [
     link: '/promo',
   },
 ];
+
+export const OTP_CODE_LENGTH = 4;
