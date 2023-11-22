@@ -10,3 +10,4 @@ export { default as Switch } from './Switch';
 export { default as SidebarEmpty } from './SidebarEmpty';
 export { default as UModal } from './UModal';
 export { default as Notification } from './Notification';
+export { default as Footer } from './Footer';

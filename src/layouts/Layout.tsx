@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Header } from '../components';
+import { Header, Footer } from '../components';
 import {
   ModalContext,
   SidebarContext,
@@ -38,6 +38,7 @@ const Layout = (props: LayoutPropsInterface) => {
                 <LoginModalContext.Provider value={loginContext}>
                   <Header />
                   {children}
+                  <Footer />
                 </LoginModalContext.Provider>
               </SidebarContext.Provider>
             </ModalContext.Provider>
