@@ -36,7 +36,10 @@ const Stars = ({ rating }: { rating: number }) => {
         .fill('')
         .map(() => {
           return (
-            <li className={styles['stars-list__item']}>
+            <li
+              key={Math.trunc(Math.random() * 100)}
+              className={styles['stars-list__item']}
+            >
               <img src='/icons/star-fill.svg' alt='' />
             </li>
           );

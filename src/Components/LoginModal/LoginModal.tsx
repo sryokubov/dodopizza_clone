@@ -44,6 +44,8 @@ const LoginModal = () => {
 
   const [modalState, setModalState] = useState<'login' | 'code'>('login');
 
+  const [phoneValue, setPhoneValue] = useState(null);
+
   useEffect(() => {
     if (isLoginModalVisible) {
       // Предлагаю написать функцию в utilities isScrollBlocked(true/false) и вызвать здесь
@@ -98,6 +100,7 @@ const LoginModal = () => {
             size='big-btn'
             disabled={!isValid}
             onClick={() => {
+              setPhoneValue(phoneInputRef.current!.value);
               setModalState('code');
               authService.current.sendPhoneNumber(phone);
             }}
@@ -110,11 +113,26 @@ const LoginModal = () => {
   };
 
   const CodeInput = () => {
+    const [isBtnActive, setIsBtnActive] = useState(false);
+    const [timerSecond, setTimerSecond] = useState(60);
+
+    const startTimer = () => {
+      const timer = setTimeout(() => {
+        setTimerSecond(timerSecond - 1);
+      }, 1000);
+      if (timerSecond === 0) {
+        setIsBtnActive(true);
+        clearInterval(timer);
+      }
+    };
+
+    useEffect(startTimer, [timerSecond]);
+
     return (
       <>
         <p className={styles.modal__text}>Код отправили сообщением на</p>
         <p className={styles.modal__phone_num_text}>
-          {phoneInputRef.current!.value}
+          {phoneValue}
           <button
             className={styles.modal__change_phone_num_text}
             onClick={() => setModalState('login')}
@@ -140,8 +158,18 @@ const LoginModal = () => {
           <p className={styles.modal__error_text}>Неверный код</p>
         </div>
         <div className={styles.modal__btn}>
-          <Button type='primary-btn' size='big-btn'>
-            Получить новый код
+          <Button
+            disabled={!isBtnActive}
+            type='primary-btn'
+            size='big-btn'
+            onClick={() => {
+              setIsBtnActive(false);
+              setTimerSecond(60);
+              authService.current.sendPhoneNumber(phone);
+            }}
+          >
+            <>Получить новый код</>
+            <>{Boolean(timerSecond) && <> через {timerSecond} сек.</>}</>
           </Button>
         </div>
       </>
