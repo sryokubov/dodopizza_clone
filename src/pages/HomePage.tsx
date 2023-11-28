@@ -6,6 +6,7 @@ import {
   Sidebar,
   LoginModal,
   SidebarEmpty,
+  Banner,
 } from '../components';
 
 import '../base.scss';
@@ -78,6 +79,7 @@ const HomePage = () => {
       </Sidebar>
       <Modal />
       <LoginModal />
+      <Banner />
     </>
   );
 };
