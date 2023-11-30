@@ -5,12 +5,13 @@
 }
 
 html {
-  font-family: 'Dodo Rounded';
+  font-family: 'Dodo';
   scroll-behavior: smooth;
 }
 
 #root {
-  height: 200vh;
+  display: flex;
+  flex-direction: column;
 }
 
 body {

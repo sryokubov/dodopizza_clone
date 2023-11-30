@@ -1,8 +1,9 @@
 .banner {
+  margin-top: auto;
   display: flex;
   flex-flow: column;
   padding-bottom: 20px;
-  font: 400 normal 16px/1.25 'Dodo Rounded';
+  font: 400 normal 16px/1.25 'Dodo';
   background-color: rgb(24, 24, 24);
   overflow: hidden;
   color: white;
@@ -30,14 +31,14 @@
 
   &__p {
     display: block;
-    font: 500 normal 18px/1 'Dodo Rounded';
+    font: 500 normal 18px/1 'Dodo';
     margin-left: 20px;
     color: rgb(255, 255, 255);
     flex-grow: 1;
   }
 
   &__link {
-    font: 500 normal 16px/24px 'Dodo Rounded';
+    font: 500 normal 16px/24px 'Dodo';
     height: 40px;
     padding: 8px 20px;
     border-radius: 9999px;

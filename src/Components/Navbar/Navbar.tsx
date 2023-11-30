@@ -7,6 +7,7 @@ import { Button, Notification } from '..';
 import { SECTION_NAVIGATION_LINKS } from '../../constants';
 import { ProductsAmountContext } from '../../context';
 import styles from './Navbar.module.scss';
+import { ProductService } from '../../services/product/ProductService';
 
 export interface NavbarProps {
   setIsSidebarVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,6 +16,7 @@ export interface NavbarProps {
 const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
   const navRef = useRef<HTMLElement | undefined>();
   const [isNavLogHidden, setIsNavLogHidden] = useState(true);
+  const productService = useRef(new ProductService());
 
   useEffect(() => {
     document.addEventListener('scroll', () => {
@@ -53,6 +55,11 @@ const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
               size='medium-btn'
               onClick={() => {
                 setIsSidebarVisible(true);
+
+                const productIDs = localStorage.getItem('orders')?.split(',');
+                if (productIDs && productIDs?.length !== 0) {
+                  productService.current.searchProducts(productIDs);
+                }
               }}
             >
               <span>Корзина</span>
@@ -76,11 +83,11 @@ const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
           </div>
         </div>
         <div style={{ position: 'absolute', right: '0px', top: '76px' }}>
-          <Notification
+          {/* <Notification
             title='Слоеные палочки с ананасами и брусникой'
             amount={8}
           />
-          <Notification title='Пепперони фреш' amount={30} />
+          <Notification title='Пепперони фреш' amount={30} /> */}
         </div>
       </div>
     </nav>

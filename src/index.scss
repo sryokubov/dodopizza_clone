@@ -1,4 +1,7 @@
-@import url(https://db.onlinewebfonts.com/c/9b424ab5e96ee96f675c922ff9c6aff3?family=Dodo+Rounded);
+@font-face {
+  font-family: 'Dodo';
+  src: url('/public/fonts/Dodo.woff2');
+}
 
 .container {
   position: relative;

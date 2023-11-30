@@ -159,6 +159,7 @@ const LoginModal = () => {
                   if (status) {
                     setIsLoggedIn(true);
                     navigate('/profile');
+                    setLoginModalVisible(false);
                   }
                 });
               }

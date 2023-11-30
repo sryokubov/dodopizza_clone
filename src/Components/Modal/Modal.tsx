@@ -5,11 +5,6 @@ import { Button, ModalCard, Switch } from '..';
 
 import styles from './Modal.module.scss';
 
-// export interface ModalProps {
-//   isModalVisible: boolean;
-//   setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
-// }
-
 const modalCardData = [
   {
     imgSrc:
@@ -93,7 +88,7 @@ const pizzaImages = [
   },
 ];
 
-const Modal = () => {
+const Modal = (props) => {
   const { isModalVisible, setIsModalVisible } = useContext(ModalContext);
   const [doughType, setDoughType] = useState('traditional');
   const [size, setSize] = useState('medium');
@@ -217,6 +212,17 @@ const Modal = () => {
         return 'традиционное';
     }
   };
+
+  const addToCartHandler = (pizzaId: string) => {
+    const orders = localStorage.getItem('orders');
+
+    if (orders === null) {
+      localStorage.setItem('orders', pizzaId);
+    } else {
+      localStorage.setItem('orders', orders.concat(',', pizzaId));
+    }
+  };
+
   return (
     <div
       className={classNames(styles.modal, {
@@ -293,7 +299,13 @@ const Modal = () => {
             </div>
           </div>
           <div className={styles.modal__button}>
-            <Button type='primary-btn' size='big-btn'>
+            <Button
+              type='primary-btn'
+              size='big-btn'
+              onClick={() => {
+                addToCartHandler(props.pizzaData.id.toString());
+              }}
+            >
               Добавить в корзину за 55 000
             </Button>
           </div>

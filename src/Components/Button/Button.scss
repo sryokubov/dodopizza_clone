@@ -8,7 +8,7 @@
   cursor: pointer;
   transition-property: background-color, color;
   transition-duration: 200ms;
-  font: 500 normal 14px/1.14 'Dodo Rounded';
+  font: 500 normal 14px/1.14 'Dodo';
   &:disabled,
   &:disabled:hover {
     background-color: #e2e2e9;
@@ -29,7 +29,7 @@
 
 .small-btn {
   padding: 8px 16px;
-  font: 500 normal 14px/1.14 'Dodo Rounded';
+  font: 500 normal 14px/1.14 'Dodo';
   &:hover {
     color: #000000;
   }
@@ -72,7 +72,7 @@
 
 .medium-btn {
   padding: 8px 20px;
-  font: 500 normal 16px/24px 'Dodo Rounded';
+  font: 500 normal 16px/24px 'Dodo';
 }
 
 .big-btn {

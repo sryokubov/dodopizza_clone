@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column;
   padding-bottom: 20px;
-  font: 400 normal 16px/1.25 "Dodo Rounded";
+  font: 400 normal 16px/1.25 'Dodo';
   background-color: rgb(24, 24, 24);
   overflow: hidden;
   color: white;
@@ -55,7 +55,7 @@
           white-space: nowrap;
           font-size: 26px;
           line-height: 1.2;
-          font-family: "Dodo Rounded";
+          font-family: 'Dodo';
           font-weight: 500;
           a {
             display: inline-block;
@@ -71,7 +71,7 @@
           color: rgb(153, 153, 153);
           font-size: 15px;
           line-height: 1;
-          font-family: "Dodo Rounded";
+          font-family: 'Dodo';
           font-weight: 500;
         }
       }
@@ -83,7 +83,7 @@
         color: rgb(255, 255, 255);
         text-decoration: none;
         cursor: pointer;
-        font: 400 normal 16px "Dodo Rounded";
+        font: 400 normal 16px 'Dodo';
         opacity: 0.7;
       }
       &_mail_link:hover {
@@ -105,7 +105,7 @@
         max-width: 29%;
         margin-right: 60px;
         &_num {
-          font: 400 normal 26px "Dodo Rounded";
+          font: 400 normal 26px 'Dodo';
           margin: 23px 0px 13px;
         }
         &_text {
@@ -119,7 +119,7 @@
     }
   }
   &__info::after {
-    content: " ";
+    content: ' ';
     display: block;
     clear: both;
   }

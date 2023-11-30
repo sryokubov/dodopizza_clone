@@ -47,10 +47,10 @@
   }
   &__title {
     margin: 0 0 8px;
-    font: 500 normal 36px/1 'Dodo Rounded';
+    font: 500 normal 36px/1 'Dodo';
   }
   &__text {
-    font: 600 normal 16px/20px 'Dodo Rounded';
+    font: 600 normal 16px/20px 'Dodo';
     color: #5c6370;
   }
   &__phone_num {
@@ -60,12 +60,12 @@
       width: 100%;
     }
     &_text {
-      font: 600 normal 16px/20px 'Dodo Rounded';
+      font: 600 normal 16px/20px 'Dodo';
     }
   }
   &__selector_title {
     margin-top: 24px;
-    font: 500 normal 14px/18px 'Dodo Rounded';
+    font: 500 normal 14px/18px 'Dodo';
     margin-bottom: 8px;
     color: #5c6370;
     &:first-child {
@@ -161,7 +161,7 @@
     margin-left: 8px;
     border: 0;
     outline: none;
-    font: 600 normal 16px/20px 'Dodo Rounded';
+    font: 600 normal 16px/20px 'Dodo';
     color: rgb(255, 105, 0);
     background-color: transparent;
     cursor: pointer;
@@ -173,7 +173,7 @@
   &__error_text {
     visibility: hidden !important;
     margin-top: 8px;
-    font: 600 normal 16px/20px 'Dodo Rounded';
+    font: 600 normal 16px/20px 'Dodo';
     text-align: center;
     color: rgb(255, 59, 48);
   }
@@ -201,7 +201,7 @@
       width: 52px !important;
       height: 60px !important;
       outline: none !important;
-      font: 600 normal 36px/1 'Dodo Rounded' !important;
+      font: 600 normal 36px/1 'Dodo' !important;
       text-align: center !important;
       border: 1px solid rgb(211, 213, 222) !important;
       border-radius: 12px !important;
