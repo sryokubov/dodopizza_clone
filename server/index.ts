@@ -31,42 +31,7 @@ const options = {
   maxRedirects: 20,
 };
 
-const req = https.request(options, function (res) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const chunks: any[] = [];
-
-  res.on('data', function (chunk) {
-    chunks.push(chunk);
-  });
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  res.on('end', function (chunk: any) {
-    const body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-
-  res.on('error', function (error) {
-    console.error(error);
-  });
-});
-
-const postData = JSON.stringify({
-  messages: [
-    {
-      destinations: [
-        {
-          to: '998977752077',
-        },
-      ],
-      from: 'InfoSMS',
-      text: `${generateOTP()}`,
-    },
-  ],
-});
-
-req.write(postData);
-
-req.end();
+let OTPCode: string = '';
 
 function generateOTP() {
   // Define the length of the OTP
@@ -80,13 +45,51 @@ function generateOTP() {
 }
 
 app.post('/auth/otp', (req: Request, res: Response) => {
-  console.log(req.body);
-  res.send({ msg: 'OTP is accepted' });
+  if (OTPCode === req.body.OTPCode) {
+    res.send({ status: 'ok' });
+  }
 });
 
 app.post('/auth', (req: Request, res: Response) => {
+  const request = https.request(options, function (res) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const chunks: any[] = [];
+
+    res.on('data', function (chunk) {
+      chunks.push(chunk);
+    });
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    res.on('end', function (chunk: any) {
+      const body = Buffer.concat(chunks);
+      console.log(body.toString());
+    });
+
+    res.on('error', function (error) {
+      console.error(error);
+    });
+  });
+
+  OTPCode = generateOTP();
+
+  const postData = JSON.stringify({
+    messages: [
+      {
+        destinations: [
+          {
+            to: req.body.phoneNumber,
+          },
+        ],
+        from: 'Digitopia',
+        text: OTPCode,
+      },
+    ],
+  });
+
+  request.write(postData);
+  request.end();
+
   console.log(req.body);
-  console.log(generateOTP());
   res.send({ msg: 'Done' });
 });
 

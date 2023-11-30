@@ -20,17 +20,19 @@ const Layout = (props: LayoutPropsInterface) => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [isLoginModalVisible, setLoginModalVisible] = useState<boolean>(false);
   const [isUModalVisible, setIsUModalVisible] = useState<boolean>(true);
-  const [productsAmount, setProductAmount] = useState(0);
+  const [productsAmount, setProductAmount] = useState<number>(0);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   const modalContext = { isModalVisible, setIsModalVisible };
   const sidebarContext = { isSidebarVisible, setIsSidebarVisible };
   const loginContext = { isLoginModalVisible, setLoginModalVisible };
   const umodalContext = { isUModalVisible, setIsUModalVisible };
   const productsAmountContext = { productsAmount, setProductAmount };
+  const authContext = { isLoggedIn, setIsLoggedIn };
 
   return (
     <>
-      <AuthContext.Provider value={{ isLoggedIn: false }}>
+      <AuthContext.Provider value={authContext}>
         <ProductsAmountContext.Provider value={productsAmountContext}>
           <UModalContext.Provider value={umodalContext}>
             <ModalContext.Provider value={modalContext}>

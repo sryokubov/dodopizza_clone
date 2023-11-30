@@ -35,6 +35,11 @@ interface ProductsAmountInterface {
     | (() => void);
 }
 
+interface AuthInterface {
+  isLoggedIn: boolean;
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>> | (() => void);
+}
+
 export const ModalContext = createContext<ModalContextInterface>({
   isModalVisible: false,
   setIsModalVisible: () => {},
@@ -55,7 +60,10 @@ export const UModalContext = createContext<UModalContextInterface>({
   setIsUModalVisible: () => {},
 });
 
-export const AuthContext = createContext({ isLoggedIn: false });
+export const AuthContext = createContext<AuthInterface>({
+  isLoggedIn: false,
+  setIsLoggedIn: () => {},
+});
 
 export const ProductsAmountContext = createContext<ProductsAmountInterface>({
   productsAmount: 0,

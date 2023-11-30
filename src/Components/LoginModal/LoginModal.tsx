@@ -3,9 +3,10 @@ import classNames from 'classnames';
 import { PhoneNumberUtil } from 'google-libphonenumber';
 import { PhoneInput, PhoneInputProps } from 'react-international-phone';
 import ReactCodeInput from 'react-code-input';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from '..';
-import { LoginModalContext } from '../../context';
+import { AuthContext, LoginModalContext } from '../../context';
 
 import 'react-international-phone/style.css';
 import styles from './LoginModal.module.scss';
@@ -45,6 +46,8 @@ const LoginModal = () => {
   const [modalState, setModalState] = useState<'login' | 'code'>('login');
 
   const [phoneValue, setPhoneValue] = useState(null);
+  const { setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isLoginModalVisible) {
@@ -102,7 +105,8 @@ const LoginModal = () => {
             onClick={() => {
               setPhoneValue(phoneInputRef.current!.value);
               setModalState('code');
-              authService.current.sendPhoneNumber(phone);
+              const phoneWithoutPlus = phone.slice(1);
+              authService.current.sendPhoneNumber(phoneWithoutPlus);
             }}
           >
             Выслать код
@@ -151,7 +155,12 @@ const LoginModal = () => {
             inputMode='tel'
             onChange={(val) => {
               if (val.length === OTP_CODE_LENGTH) {
-                authService.current.sendOTPCode(val);
+                authService.current.sendOTPCode(val).then((status) => {
+                  if (status) {
+                    setIsLoggedIn(true);
+                    navigate('/profile');
+                  }
+                });
               }
             }}
           />

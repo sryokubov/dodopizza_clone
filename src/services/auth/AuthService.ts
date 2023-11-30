@@ -13,7 +13,7 @@ export class AuthService {
     console.log(response.data);
   }
 
-  async sendOTPCode(OTPCode) {
+  async sendOTPCode(OTPCode: string) {
     const response = await axios({
       method: 'post',
       url: 'http://localhost:8000/auth/otp',
@@ -22,7 +22,7 @@ export class AuthService {
       },
     });
 
-    console.log(response.data);
+    return response.data.status === 'ok';
   }
 }
 
