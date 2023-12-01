@@ -153,7 +153,6 @@
   font: 500 normal 14px/1.25 'Dodo';
 }
 
-/* bad code */
 .info__text-bottom {
   margin-top: 16px;
 }
@@ -202,16 +201,14 @@
   align-items: center;
 }
 
-.coin__icon svg path {
+.coin__icon {
+  filter: brightness(0%);
   transition: all 150ms ease 0s;
 }
 
 .coin__link:hover .coin__icon {
+  filter: brightness(100%);
   transform: translateY(-4px);
-}
-
-.coin__link:hover .coin__icon svg path {
-  fill: rgb(255, 105, 0);
 }
 
 .coin__link:hover .coin__text {

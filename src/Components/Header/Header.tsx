@@ -126,7 +126,11 @@ const Header = () => {
           <div className={styles.header__coin}>
             <a className={styles.coin__link} href='#'>
               <div className={styles.coin__icon}>
-                <img src='/icons/coin.svg' alt='' />
+                <img
+                  className={styles.coin__icon}
+                  src='/icons/coin.svg'
+                  alt=''
+                />
               </div>
               <p className={styles.coin__text}>Додокоины</p>
             </a>
