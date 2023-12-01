@@ -1,0 +1,153 @@
+.itemBox {
+  width: 100%;
+  position: relative;
+  padding: 12px 16px;
+  background: rgb(255, 255, 255);
+  margin-bottom: 8px;
+  &__button {
+    margin: 0px;
+    padding: 0px;
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    width: 16px;
+    height: 16px;
+  }
+  &__content {
+    display: flex;
+    border-bottom: 1px solid rgb(226, 226, 233);
+    padding-bottom: 12px;
+    &_picture {
+      width: 64px;
+      height: 64px;
+      flex: 0 0 auto;
+      margin: 0px 16px 0px 0px;
+      &_img {
+        position: relative;
+        top: 0px;
+        width: 95%;
+        margin: 5% 0px 0px 5%;
+        object-fit: contain;
+      }
+    }
+    &_text {
+      flex: 1 1 auto;
+      display: flex;
+      flex-flow: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      h3 {
+        font-family: "Dodo";
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: rgb(0, 0, 0);
+        margin: 0px 0px 4px;
+      }
+      &_dynamic {
+        margin-bottom: 4px;
+        font-family: "Dodo";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        color: rgb(92, 99, 112);
+        margin: 0px;
+        white-space: pre-wrap;
+      }
+    }
+  }
+  &__calc {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 12px;
+    &_total {
+      flex: 1 1 auto;
+      display: flex;
+      flex-wrap: wrap;
+      -webkit-box-align: center;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+      color: rgb(0, 0, 0);
+      font-family: "Dodo";
+      margin: 8px 8px 8px 0px;
+    }
+    &_count {
+      flex: 0 0 auto;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      &_link {
+        margin-right: 12px;
+        font-size: 14px;
+        line-height: 18px;
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        font-family: "Dodo";
+        font-weight: 600;
+        color: rgb(255, 105, 0);
+      }
+      &_counter {
+        position: relative;
+        width: 96px;
+        height: 32px;
+        display: flex;
+        background-color: rgb(243, 243, 247);
+        box-sizing: border-box;
+        border-radius: 9999px;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        &_num {
+          position: relative;
+          z-index: 1;
+          height: 100%;
+          color: rgb(92, 99, 112);
+          font-family: "Dodo";
+          font-size: 16px;
+          display: flex;
+          -webkit-box-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          align-items: center;
+          font-weight: 500;
+        }
+        button {
+          margin: 0px;
+          background: none;
+          cursor: pointer;
+          position: relative;
+          vertical-align: top;
+          height: 100%;
+          padding: 0px 8px;
+          width: 35.41%;
+          border: none;
+          display: flex;
+          -webkit-box-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          align-items: center;
+          opacity: 0.6;
+          img {
+            height: 10px;
+            width: 10px;
+          }
+        }
+        button:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

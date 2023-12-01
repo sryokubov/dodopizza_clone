@@ -5,7 +5,7 @@ import styles from './Sidebar.module.scss';
 import { SidebarContext } from '../../context';
 
 interface SidebarProps {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }
 
 const Sidebar = (props: SidebarProps) => {

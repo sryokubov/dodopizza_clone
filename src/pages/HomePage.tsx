@@ -7,6 +7,7 @@ import {
   LoginModal,
   SidebarEmpty,
   Banner,
+  CartItem,
 } from '../components';
 
 import '../base.scss';
@@ -74,6 +75,10 @@ const HomePage = () => {
         </div>
       </div>
       <Sidebar>
+        {/* Test */}
+        {/* <CartItem />
+        <CartItem /> */}
+
         <SidebarEmpty />
       </Sidebar>
       <Modal pizzaData={{ id: 1 }} />

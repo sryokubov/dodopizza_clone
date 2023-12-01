@@ -12,3 +12,4 @@ export { default as UModal } from './UModal';
 export { default as Notification } from './Notification';
 export { default as Footer } from './Footer';
 export { default as Banner } from './Banner';
+export { default as CartItem } from './CartItem';
