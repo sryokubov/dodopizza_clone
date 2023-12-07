@@ -1,0 +1,106 @@
+.item_cart {
+  &_container {
+    margin-top: auto;
+    padding: 16px 24px 24px;
+    width: 100%;
+    box-shadow: rgba(6, 5, 50, 0.1) 0px -2px 4px;
+    background-color: #fff;
+  }
+  &_total {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    font: 500 16px 'Dodo';
+    border-bottom: 1px solid rgb(226, 226, 233);
+
+    &_info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font: 500 12px/14px 'Dodo';
+    }
+    &_price {
+      font: 500 12px/14px 'Dodo';
+    }
+
+    &_tooltip {
+      display: inline-block;
+      margin-left: 8px;
+      font: 500 12px/16px 'Dodo';
+    }
+
+    &_tooltip_icon {
+      line-height: 16px;
+    }
+
+    &_tooltip_btn {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      border: none;
+      line-height: 1;
+      background: none;
+      cursor: pointer;
+      fill: rgb(92, 99, 112);
+
+      &:hover {
+        transform: scale(1.1);
+        fill: #000000;
+      }
+    }
+
+    &_dodocoin {
+      margin-top: 0px;
+      width: 14px;
+      height: 14px;
+      vertical-align: -3px;
+    }
+  }
+}
+
+.item_cart_final_info {
+  display: flex;
+  justify-content: space-between;
+  &_header {
+    font: 500 16px 'dodo';
+  }
+  &_price {
+    font: 500 16px 'dodo';
+  }
+  &_btn {
+    margin-top: 16px;
+    padding: 12px 54px 12px 48px;
+    width: 382px;
+    height: 48px;
+    font: 500 16px 'dodo';
+    color: #ffffff;
+    background-color: #ff6900;
+    outline: none;
+    border: none;
+    border-radius: 9999px;
+    text-align: center;
+
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    transition-property: background-color, color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+    &:hover {
+      background-color: rgb(232, 97, 0);
+      color: rgb(255, 255, 255);
+    }
+    &:active {
+      background-color: rgb(255, 105, 0);
+      color: rgb(255, 165, 102);
+    }
+  }
+  &_arrow {
+    position: absolute;
+    right: -171px;
+    top: calc(50% - 13px);
+    height: 24px;
+  }
+}

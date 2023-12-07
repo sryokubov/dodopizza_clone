@@ -8,6 +8,7 @@ import {
   SidebarEmpty,
   Banner,
   CartItem,
+  ItemCartTotal,
 } from '../components';
 
 import '../base.scss';
@@ -78,8 +79,8 @@ const HomePage = () => {
         {/* Test */}
         {/* <CartItem />
         <CartItem /> */}
-
-        <SidebarEmpty />
+        <ItemCartTotal />
+        {/* <SidebarEmpty /> */}
       </Sidebar>
       <Modal pizzaData={{ id: 1 }} />
       <LoginModal />
