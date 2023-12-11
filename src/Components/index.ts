@@ -16,3 +16,4 @@ export { default as CartItem } from './CartItem';
 export { default as ItemCartTotal } from './ItemCartTotal';
 export { default as Rating } from './Rating';
 export { default as Stars } from './Stars';
+export { default as Title } from './Title';

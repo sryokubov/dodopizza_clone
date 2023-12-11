@@ -4,6 +4,7 @@ import {
   Sidebar,
   LoginModal,
   ItemCartTotal,
+  Title,
   // SidebarEmpty,
   // CartItem,
 } from '../components';
@@ -43,8 +44,7 @@ const HomePage = () => {
   return (
     <>
       <div className='container'>
-        <h2 style={{ fontSize: '36px', margin: '32px 0' }}>Пицца</h2>
-
+        <Title type='h2'>Пицца</Title>
         <div
           className='productsWrapper'
           style={{ display: 'flex', flexWrap: 'wrap' }}
