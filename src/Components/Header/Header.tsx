@@ -59,7 +59,7 @@ const Header = () => {
           </div>
           <div className={styles.header__coin}>
             <a className={styles.coin__link} href='#'>
-              <div className={styles.coin__icon}>
+              <div className={styles['coin__icon-box']}>
                 <img
                   className={styles.coin__icon}
                   src='/icons/coin.svg'

@@ -9,7 +9,10 @@ interface RatingProps {
   rating: number;
 }
 
-const Rating = ({ deliveryTime, rating }: RatingProps) => {
+const Rating: React.FC<RatingProps> = ({
+  deliveryTime,
+  rating,
+}: RatingProps) => {
   return (
     <div className={styles.info}>
       {deliveryTime.toString()} мин

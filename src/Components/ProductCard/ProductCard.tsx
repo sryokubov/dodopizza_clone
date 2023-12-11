@@ -10,6 +10,7 @@ export interface ProductCardProps {
   description: string;
   price: number;
   oldPrice?: number;
+  id: number | string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -18,15 +19,18 @@ const ProductCard: React.FC<ProductCardProps> = ({
   description,
   price,
   oldPrice,
+  id,
 }: ProductCardProps) => {
   const formattedPrice = formatPrice(price);
   const { setIsModalVisible } = useContext(ModalContext);
+
   return (
     <div
       className={styles.card}
       onClick={() => {
         setIsModalVisible(true);
       }}
+      key={id}
     >
       <div className={styles.card__header}>
         <img src={imgSrc} alt='' />

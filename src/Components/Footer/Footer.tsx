@@ -1,9 +1,11 @@
-import styles from "./Footer.module.scss";
+import { Banner } from '..';
+import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <div className="container">
+      <Banner />
+      <div className='container'>
         <div className={styles.footer__apps}>
           <div className={styles.footer__apps_left}>
             <div className={styles.footer__apps_left_linkSection}>
@@ -58,7 +60,7 @@ const Footer = () => {
           <div className={styles.footer__apps_right}>
             <div className={styles.footer__apps_right_contact}>
               <div className={styles.footer__apps_right_contact_num}>
-                <a href="tel:1168">1168</a>
+                <a href='tel:1168'>1168</a>
               </div>
               <span className={styles.footer__apps_right_contact_text}>
                 Звонок бесплатный
@@ -66,7 +68,7 @@ const Footer = () => {
             </div>
             <a
               className={styles.footer__apps_right_mail_link}
-              href="mailto:feedback@dodopizza.uz"
+              href='mailto:feedback@dodopizza.uz'
             >
               feedback@dodopizza.uz
             </a>
@@ -99,23 +101,23 @@ const Footer = () => {
           <div className={styles.footer__social_copyright}>
             <img
               className={styles.footer__social_copyright_img}
-              src="/icons/copyright-logo.svg"
-              alt="dodo_pizza"
+              src='/icons/copyright-logo.svg'
+              alt='dodo_pizza'
             />
-            <span className="copyright-text">© 2023</span>
+            <span className='copyright-text'>© 2023</span>
           </div>
           <div className={styles.footer__social_bottomLinks}>
-            <a href="/tashkent/legal">Правовая информация</a>
+            <a href='/tashkent/legal'>Правовая информация</a>
           </div>
           <div className={styles.footer__social_socialLinks}>
-            <a className={styles.footer__social_socialLinks_logo} href="#">
-              <img src="/icons/facebook-link.svg" alt="facebook link" />
+            <a className={styles.footer__social_socialLinks_logo} href='#'>
+              <img src='/icons/facebook-link.svg' alt='facebook link' />
             </a>
-            <a className={styles.footer__social_socialLinks_logo} href="#">
-              <img src="/icons/instagram-link.svg" alt="instagram link" />
+            <a className={styles.footer__social_socialLinks_logo} href='#'>
+              <img src='/icons/instagram-link.svg' alt='instagram link' />
             </a>
-            <a className={styles.footer__social_socialLinks_logo} href="#">
-              <img src="/icons/youtube-link.svg" alt="youtube link" />
+            <a className={styles.footer__social_socialLinks_logo} href='#'>
+              <img src='/icons/youtube-link.svg' alt='youtube link' />
             </a>
           </div>
         </div>

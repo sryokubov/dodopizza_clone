@@ -1,6 +1,10 @@
 import styles from './Stars.module.scss';
 
-const Stars = ({ rating }: { rating: number }) => {
+interface StarsProps {
+  rating: number;
+}
+
+const Stars: React.FC<StarsProps> = ({ rating }: StarsProps) => {
   const isHalfStarNeeded = (): boolean => {
     const floatingPart = rating % 1;
     return floatingPart >= 0.5;
@@ -13,7 +17,7 @@ const Stars = ({ rating }: { rating: number }) => {
         .map(() => {
           return (
             <li
-              key={Math.trunc(Math.random() * 100)}
+              key={'star' + Math.trunc(Math.random() * 100)}
               className={styles['stars-list__item']}
             >
               <img src='/icons/star-fill.svg' alt='star' />

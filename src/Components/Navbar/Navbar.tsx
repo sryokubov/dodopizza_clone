@@ -1,20 +1,17 @@
 import { useEffect, useRef, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { Button, Notification } from '..';
 
 import { SECTION_NAVIGATION_LINKS } from '../../constants';
-import { ProductsAmountContext } from '../../context';
+import { ProductsAmountContext, SidebarContext } from '../../context';
 import styles from './Navbar.module.scss';
 import { ProductService } from '../../services/product/ProductService';
 
-export interface NavbarProps {
-  setIsSidebarVisible: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
+const Navbar = () => {
   const navRef = useRef<HTMLElement | undefined>();
+  const { setIsSidebarVisible } = useContext(SidebarContext);
   const [isNavLogHidden, setIsNavLogHidden] = useState(true);
   const productService = useRef(new ProductService());
 
@@ -45,7 +42,7 @@ const Navbar = ({ setIsSidebarVisible }: NavbarProps) => {
           <ul className={styles.nav__list}>
             {SECTION_NAVIGATION_LINKS.map(({ link, title }) => (
               <li className={styles.nav__item} key={link}>
-                <Link to={link}>{title}</Link>
+                <a href={link}>{title}</a>
               </li>
             ))}
           </ul>

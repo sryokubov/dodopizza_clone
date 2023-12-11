@@ -1,18 +1,14 @@
-import { useContext } from 'react';
 import {
   Modal,
-  Navbar,
   ProductCard,
   Sidebar,
   LoginModal,
-  SidebarEmpty,
-  Banner,
-  CartItem,
   ItemCartTotal,
+  // SidebarEmpty,
+  // CartItem,
 } from '../components';
 
 import '../base.scss';
-import { SidebarContext } from '../context';
 
 export interface Pizza {
   title: string;
@@ -43,12 +39,9 @@ const HomePage = () => {
   //     }
   //   })();
   // }, []);
-  const { setIsSidebarVisible } = useContext(SidebarContext);
 
   return (
     <>
-      <Navbar setIsSidebarVisible={setIsSidebarVisible} />
-
       <div className='container'>
         <h2 style={{ fontSize: '36px', margin: '32px 0' }}>Пицца</h2>
 
@@ -64,19 +57,20 @@ const HomePage = () => {
                 'https://dodopizza-a.akamaihd.net/static/Img/Products/b677e7d580c94c5384a4c3850978c099_760x760.webp',
               description:
                 'Индейка, сладкий перец, моцарелла из цельного молока, томатный соус, сыр чеддер, сыр пармезан',
+              id: 1,
             })
-            .map(({ title, price, imgSrc, description }) => (
+            .map(({ title, price, imgSrc, description, id }) => (
               <ProductCard
                 title={title}
                 price={price}
                 imgSrc={imgSrc}
                 description={description}
+                id={id}
               />
             ))}
         </div>
       </div>
       <Sidebar>
-        {/* Test */}
         {/* <CartItem />
         <CartItem /> */}
         <ItemCartTotal />
@@ -84,7 +78,6 @@ const HomePage = () => {
       </Sidebar>
       <Modal pizzaData={{ id: 1 }} />
       <LoginModal />
-      <Banner />
     </>
   );
 };
