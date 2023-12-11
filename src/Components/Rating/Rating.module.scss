@@ -1,0 +1,80 @@
+.info {
+  font: 500 normal 15px/1.4 'Dodo';
+  &:hover &__panel {
+    opacity: 1;
+    transform: translateX(calc(-50% + 1.5px)) translateY(12px);
+  }
+  &__panel {
+    pointer-events: none;
+    position: absolute;
+    z-index: 101;
+    opacity: 0;
+    transform: translateX(calc(-50% + 1.5px)) translateY(20px);
+    margin-top: 6px;
+    width: 450px;
+    min-height: 45px;
+    padding: 12px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(55, 53, 53);
+    transition: all 200ms ease-in-out;
+  }
+  &__left,
+  &__right {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  &__big-text {
+    font: 500 26px/1.25 'Dodo';
+    display: block;
+  }
+  &__right &__big-text {
+    color: rgb(255, 210, 0);
+  }
+  &__medium-text {
+    display: block;
+    margin-top: 2px;
+    font: 500 normal 14px/1.25 'Dodo';
+  }
+  &__text {
+    display: block;
+    margin-top: 5px;
+    color: rgb(171, 173, 186);
+    font: 500 normal 14px/1.25 'Dodo';
+  }
+  &__text-bottom {
+    margin-top: 16px;
+  }
+}
+
+.dot {
+  position: relative;
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin: 3px 6px;
+  border-radius: 3px;
+  background-color: black;
+}
+
+.triangle {
+  position: absolute;
+  width: 22px;
+  height: auto;
+  fill: rgb(55, 53, 53);
+  top: -9px;
+  left: 50%;
+  margin-left: -11px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  font-size: 0px;
+  line-height: 0;
+  font-style: normal;
+}
+
+.star {
+  display: inline-block;
+  margin-left: 2px;
+}

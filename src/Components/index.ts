@@ -14,3 +14,5 @@ export { default as Footer } from './Footer';
 export { default as Banner } from './Banner';
 export { default as CartItem } from './CartItem';
 export { default as ItemCartTotal } from './ItemCartTotal';
+export { default as Rating } from './Rating';
+export { default as Stars } from './Stars';
