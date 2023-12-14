@@ -30,6 +30,7 @@ const LoginModal = () => {
   const onClickHandler = () => {
     setModalState('login');
     setLoginModalVisible(false);
+    setIsCodeInvalid(false);
   };
   const { isLoginModalVisible, setLoginModalVisible } =
     useContext(LoginModalContext);
@@ -46,6 +47,7 @@ const LoginModal = () => {
   const [modalState, setModalState] = useState<'login' | 'code'>('login');
 
   const [phoneValue, setPhoneValue] = useState(null);
+  const [isCodeInvalid, setIsCodeInvalid] = useState(false);
   const { setIsLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -155,17 +157,24 @@ const LoginModal = () => {
             inputMode='tel'
             onChange={(val) => {
               if (val.length === OTP_CODE_LENGTH) {
-                authService.current.sendOTPCode(val).then((status) => {
-                  if (status) {
-                    setIsLoggedIn(true);
-                    navigate('/profile');
-                    setLoginModalVisible(false);
-                  }
-                });
+                const phoneWithoutPlus = phone.slice(1);
+                authService.current
+                  .sendOTPCode(val, phoneWithoutPlus)
+                  .then((res) => {
+                    if (res.status === 'ok') {
+                      setIsLoggedIn(true);
+                      navigate('/profile');
+                      setLoginModalVisible(false);
+                    } else if (res.status === 'error') {
+                      setIsCodeInvalid(true);
+                    }
+                  });
               }
             }}
           />
-          <p className={styles.modal__error_text}>Неверный код</p>
+          {isCodeInvalid && (
+            <p className={styles.modal__error_text}>Неверный код</p>
+          )}
         </div>
         <div className={styles.modal__btn}>
           <Button

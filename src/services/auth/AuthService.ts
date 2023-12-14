@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
 
 export class AuthService {
   async sendPhoneNumber(phoneNumber: string) {
@@ -13,16 +14,45 @@ export class AuthService {
     console.log(response.data);
   }
 
-  async sendOTPCode(OTPCode: string) {
+  async sendOTPCode(OTPCode: string, phoneNumber: string) {
     const response = await axios({
       method: 'post',
       url: 'http://localhost:8000/auth/otp',
       data: {
         OTPCode,
+        phoneNumber,
       },
     });
 
-    return response.data.status === 'ok';
+    if (response.data.success) {
+      this.setToken(response.data.token);
+      return { status: 'ok' };
+    } else {
+      return { status: 'error' };
+    }
+  }
+
+  setToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+  }
+
+  isLoggedIn() {
+    const token = this.getToken();
+
+    return !!token && !this.isTokenExpired(token);
+  }
+
+  isTokenExpired(token: string) {
+    const decodedToken = jwtDecode(token);
+    return decodedToken.exp! < Date.now() / 1000;
   }
 }
 

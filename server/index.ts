@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { Request, Response, Application } from 'express';
 import cors from 'cors';
-
 import bodyParser from 'body-parser';
-
 import fr from 'follow-redirects';
+import jwt from 'jsonwebtoken';
 
 const https = fr.https;
+const privateKey = process.env.privateKey || 'azamat';
 
 import './models/interfaces/pizza';
 import { pizzas } from './models/data/pizza';
@@ -44,10 +44,15 @@ function generateOTP() {
   return otp.toString().padStart(otpLength, '0');
 }
 
-app.post('/auth/otp', (req: Request, res: Response) => {
+app.post('/auth/otp', async (req: Request, res: Response) => {
+  let token = null;
+  const { phoneNumber } = req.body;
   if (OTPCode === req.body.OTPCode) {
-    res.send({ status: 'ok' });
+    token = await jwt.sign({ phoneNumber }, privateKey, { expiresIn: 3600 });
+    return res.json({ success: true, token: `Bearer ${token}` });
   }
+
+  return res.json({ success: false });
 });
 
 app.post('/auth', (req: Request, res: Response) => {
