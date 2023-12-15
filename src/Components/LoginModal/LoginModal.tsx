@@ -5,13 +5,15 @@ import { PhoneInput, PhoneInputProps } from 'react-international-phone';
 import ReactCodeInput from 'react-code-input';
 import { useNavigate } from 'react-router-dom';
 
+import { AuthService } from '../../services/auth/AuthService';
+import { OTP_CODE_LENGTH } from '../../constants';
+
 import { Button } from '..';
 import { AuthContext, LoginModalContext } from '../../context';
+import { isScrollDisabled } from '../../utilities';
 
 import 'react-international-phone/style.css';
 import styles from './LoginModal.module.scss';
-import { AuthService } from '../../services/auth/AuthService';
-import { OTP_CODE_LENGTH } from '../../constants';
 // import { reactCodeInput } from 'react-code-input/styles/style.scss';
 
 const phoneUtil = PhoneNumberUtil.getInstance();
@@ -52,14 +54,7 @@ const LoginModal = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isLoginModalVisible) {
-      // Предлагаю написать функцию в utilities isScrollBlocked(true/false) и вызвать здесь
-      document.body.style.paddingRight = '17px';
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '0px';
-    }
+    isScrollDisabled(isLoginModalVisible);
   }, [isLoginModalVisible]);
 
   const Login = () => {

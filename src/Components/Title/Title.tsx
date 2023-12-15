@@ -1,7 +1,7 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import styles from './Title.module.scss';
-import classNames from 'classnames';
 
 interface TitleProps {
   type: string;

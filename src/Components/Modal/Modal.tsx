@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
+
 import { ModalContext } from '../../context';
 import { Button, ModalCard, Switch } from '..';
+import { isScrollDisabled } from '../../utilities';
 
 import styles from './Modal.module.scss';
 
@@ -153,11 +155,7 @@ const Modal = (props) => {
   }
 
   useEffect(() => {
-    if (isModalVisible) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    isScrollDisabled(isModalVisible);
   }, [isModalVisible]);
 
   useEffect(() => {

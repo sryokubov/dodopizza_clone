@@ -1,8 +1,10 @@
 import { useContext, useEffect } from 'react';
 import classNames from 'classnames';
 
-import styles from './Sidebar.module.scss';
 import { SidebarContext } from '../../context';
+import { isScrollDisabled } from '../../utilities';
+
+import styles from './Sidebar.module.scss';
 
 interface SidebarProps {
   children: JSX.Element | JSX.Element[];
@@ -10,14 +12,9 @@ interface SidebarProps {
 
 const Sidebar = (props: SidebarProps) => {
   const { isSidebarVisible, setIsSidebarVisible } = useContext(SidebarContext);
+
   useEffect(() => {
-    if (isSidebarVisible) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = '17px';
-    } else {
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '0px';
-    }
+    isScrollDisabled(isSidebarVisible);
   }, [isSidebarVisible]);
 
   const onClickHandler = () => {
