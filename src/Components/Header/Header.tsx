@@ -5,19 +5,22 @@ import { AuthContext, LoginModalContext } from '../../context';
 import { HEADER_LINKS } from '../../constants';
 
 import styles from './Header.module.scss';
+import { Link } from 'react-router-dom';
 
 const HeaderNav = () => {
   return (
     <nav className={styles.header__nav}>
       <div className='container'>
         <ul className={styles['header__nav-list']}>
-          {HEADER_LINKS.map(({ title, link }, index) => (
-            <li className={styles['header__nav-item']} key={index}>
-              <a href={link} className={styles['header__nav-link']}>
-                {title}
-              </a>
-            </li>
-          ))}
+          {HEADER_LINKS.map(({ title, link }, index) => {
+            return (
+              <li className={styles['header__nav-item']} key={index}>
+                <Link to={link} className={styles['header__nav-link']}>
+                  {title}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>
@@ -34,16 +37,16 @@ const Header = () => {
       <div className='container'>
         <div className={styles.header__content}>
           <div className={styles.header__logo}>
-            <a href='/'>
+            <Link to='/'>
               <img src='/icons/dodo-logo.svg' alt='' />
-            </a>
+            </Link>
           </div>
           <div className={styles.header__about}>
             <p className={styles['header__about-text']}>
               Доставка пиццы{' '}
-              <a className={styles['header__about-link']} href='#'>
+              <Link className={styles['header__about-link']} to='#'>
                 Ташкент
-              </a>
+              </Link>
             </p>
             <div className={styles.header__rating}>
               <Rating deliveryTime={35} rating={rating} />
@@ -51,14 +54,14 @@ const Header = () => {
           </div>
           <div className={styles.header__contacts}>
             <p className={styles['header__phone-number']}>
-              <a href='tel:1168'>1168</a>
+              <Link to='tel:1168'>1168</Link>
             </p>
             <div className={styles['header__phone-text']}>
               Звонок бесплатный
             </div>
           </div>
           <div className={styles.header__coin}>
-            <a className={styles.coin__link} href='#'>
+            <Link className={styles.coin__link} to='/loyaltyprogram'>
               <div className={styles['coin__icon-box']}>
                 <img
                   className={styles.coin__icon}
@@ -67,22 +70,25 @@ const Header = () => {
                 />
               </div>
               <p className={styles.coin__text}>Додокоины</p>
-            </a>
+            </Link>
             {isLoggedIn && (
               <>
-                <a className={styles.coin__link} href='#'>
+                <Link
+                  className={styles.coin__link}
+                  to='/profile#client-bonuses'
+                >
                   <div className={styles.coin__icon}>
                     <img src='/icons/promotions-icon.svg' alt='' />
                   </div>
                   <p className={styles.coin__text}>Мои акции</p>
-                </a>
+                </Link>
 
-                <a className={styles.coin__link} href={'/profile'}>
+                <Link className={styles.coin__link} to='/profile'>
                   <div className={styles.coin__icon}>
                     <img src='/icons/profile.svg' alt='' />
                   </div>
                   <p className={styles.coin__text}>Кабинет</p>
-                </a>
+                </Link>
               </>
             )}
           </div>

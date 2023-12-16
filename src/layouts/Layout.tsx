@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Header, Footer, Navbar } from '../components';
 import {
   ModalContext,
@@ -8,12 +8,14 @@ import {
   UModalContext,
   ProductsAmountContext,
 } from '../context';
+import { AuthService } from '../services/auth/AuthService';
 
 interface LayoutPropsInterface {
   children: JSX.Element;
 }
 
 const Layout = (props: LayoutPropsInterface) => {
+  const authService = useRef(new AuthService());
   const children = props.children;
 
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
@@ -29,6 +31,10 @@ const Layout = (props: LayoutPropsInterface) => {
   const umodalContext = { isUModalVisible, setIsUModalVisible };
   const productsAmountContext = { productsAmount, setProductAmount };
   const authContext = { isLoggedIn, setIsLoggedIn };
+
+  useEffect(() => {
+    setIsLoggedIn(authService.current.isLoggedIn());
+  });
 
   return (
     <>

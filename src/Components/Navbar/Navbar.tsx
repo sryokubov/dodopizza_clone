@@ -8,6 +8,7 @@ import { SECTION_NAVIGATION_LINKS } from '../../constants';
 import { ProductsAmountContext, SidebarContext } from '../../context';
 import styles from './Navbar.module.scss';
 import { ProductService } from '../../services/product/ProductService';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const navRef = useRef<HTMLElement | undefined>();
@@ -42,7 +43,7 @@ const Navbar = () => {
           <ul className={styles.nav__list}>
             {SECTION_NAVIGATION_LINKS.map(({ link, title }) => (
               <li className={styles.nav__item} key={link}>
-                <a href={link}>{title}</a>
+                <Link to={link}>{title}</Link>
               </li>
             ))}
           </ul>

@@ -46,7 +46,6 @@ export class AuthService {
 
   isLoggedIn() {
     const token = this.getToken();
-
     return !!token && !this.isTokenExpired(token);
   }
 

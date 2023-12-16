@@ -6,7 +6,7 @@ import {
   ItemCartTotal,
   Title,
   // SidebarEmpty,
-  // CartItem,
+  CartItem,
 } from '../components';
 
 import '../base.scss';
@@ -71,8 +71,8 @@ const HomePage = () => {
         </div>
       </div>
       <Sidebar>
-        {/* <CartItem />
-        <CartItem /> */}
+        <CartItem />
+        <CartItem />
         <ItemCartTotal />
         {/* <SidebarEmpty /> */}
       </Sidebar>

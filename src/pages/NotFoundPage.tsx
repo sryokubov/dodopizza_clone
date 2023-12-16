@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './NotFoundPage.module.scss';
 
 const NotFoundPage = () => {
@@ -21,9 +22,9 @@ const NotFoundPage = () => {
             <p className={styles.page__text}>
               Но знаем, где найти много всего вкусного
             </p>
-            <a href='/' className={styles.page__button}>
+            <Link to='/' className={styles.page__button}>
               Back to menu
-            </a>
+            </Link>
           </div>
           <div className={styles.page__details}>404 Error</div>
         </div>

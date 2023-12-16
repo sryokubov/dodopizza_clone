@@ -1,7 +1,7 @@
 export const HEADER_LINKS = [
   {
     title: 'Прямой эфир',
-    link: '#',
+    link: '/live',
   },
 
   {
