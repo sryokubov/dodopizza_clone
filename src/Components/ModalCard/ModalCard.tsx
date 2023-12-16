@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import classNames from 'classnames';
+
 import { formatPrice } from '../../utilities';
+
 import styles from './ModalCard.module.scss';
 
 interface ModalCardProps {

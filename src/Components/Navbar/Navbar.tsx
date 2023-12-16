@@ -6,9 +6,10 @@ import { Button, Notification } from '..';
 
 import { SECTION_NAVIGATION_LINKS } from '../../constants';
 import { ProductsAmountContext, SidebarContext } from '../../context';
-import styles from './Navbar.module.scss';
 import { ProductService } from '../../services/product/ProductService';
 import { Link } from 'react-router-dom';
+
+import styles from './Navbar.module.scss';
 
 const Navbar = () => {
   const navRef = useRef<HTMLElement | undefined>();

@@ -1,12 +1,6 @@
-import './Button.scss';
+import { IButtonProps } from './Button.interface';
 
-interface IButtonProps {
-  type: string;
-  size: string;
-  children: JSX.Element[] | string;
-  disabled?: boolean;
-  onClick?: () => void;
-}
+import './Button.scss';
 
 const Button = ({
   type,

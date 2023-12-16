@@ -1,9 +1,11 @@
 import { useContext } from 'react';
+
 import { ModalContext } from '../../context';
 import { formatPrice } from '../../utilities';
 import { Button } from '..';
 
 import styles from './ProductCard.module.scss';
+
 export interface ProductCardProps {
   imgSrc: string;
   title: string;

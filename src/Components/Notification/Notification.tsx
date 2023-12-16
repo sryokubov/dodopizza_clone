@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
+import classNames from 'classnames';
 
 import styles from './Notification.module.scss';
-import classNames from 'classnames';
 
 interface NotificationProps {
   title: string;
