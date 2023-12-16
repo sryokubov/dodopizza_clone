@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
-import { ModalContext } from '../../context';
+import { ModalContext, ProductsAmountContext } from '../../context';
 import { Button, ModalCard, Switch } from '..';
 import { isScrollDisabled } from '../../utilities';
 
@@ -91,7 +91,11 @@ const pizzaImages = [
 ];
 
 const Modal = (props) => {
+  console.log(props.pizzaData);
   const { isModalVisible, setIsModalVisible } = useContext(ModalContext);
+  const { productsAmount, setProductsAmount } = useContext(
+    ProductsAmountContext
+  );
   const [doughType, setDoughType] = useState('traditional');
   const [size, setSize] = useState('medium');
   const [isBigCircleVisible, setBigCircleVisible] = useState(true);
@@ -302,6 +306,8 @@ const Modal = (props) => {
               size='big-btn'
               onClick={() => {
                 addToCartHandler(props.pizzaData.id.toString());
+                setIsModalVisible(false);
+                setProductsAmount(productsAmount + 1);
               }}
             >
               Добавить в корзину за 55 000

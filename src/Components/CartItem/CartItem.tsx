@@ -1,18 +1,24 @@
 import { useState } from 'react';
 import styles from './CartItem.module.scss';
 
-const CartItem = () => {
-  const [amount, setAmount] = useState<number>(1);
+const CartItem = (props) => {
+  const [amount, setAmount] = useState<number>(props.amount);
   const [deleteFlag, setDeleteFlag] = useState(false);
 
   const incrementAmount = () => {
     setAmount(amount + 1);
+    const orders = localStorage.getItem('orders') + ',' + props.id;
+    localStorage.setItem('orders', orders);
   };
 
   const decrementAmount = () => {
-    setAmount((amount) => {
-      return amount - 1;
-    });
+    setAmount(amount - 1);
+    const orders = localStorage.getItem('orders')?.split(',');
+    if (orders) {
+      const idIndex = orders.indexOf(props.id);
+      orders.splice(idIndex, 1);
+      localStorage.setItem('orders', orders.join(','));
+    }
   };
 
   return (

@@ -12,7 +12,8 @@ export interface ProductCardProps {
   description: string;
   price: number;
   oldPrice?: number;
-  id: number | string;
+  id: number;
+  setProductId(id: number): void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -22,6 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   price,
   oldPrice,
   id,
+  setProductId,
 }: ProductCardProps) => {
   const formattedPrice = formatPrice(price);
   const { setIsModalVisible } = useContext(ModalContext);
@@ -31,6 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       className={styles.card}
       onClick={() => {
         setIsModalVisible(true);
+        setProductId(id);
       }}
       key={id}
     >

@@ -18,6 +18,7 @@ export const HEADER_LINKS = [
     title: 'Контакты',
     link: '/contacts',
   },
+  {},
 ];
 
 export interface SectionNavigationLink {

@@ -22,14 +22,16 @@ const Layout = (props: LayoutPropsInterface) => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [isLoginModalVisible, setLoginModalVisible] = useState<boolean>(false);
   const [isUModalVisible, setIsUModalVisible] = useState<boolean>(true);
-  const [productsAmount, setProductAmount] = useState<number>(0);
+  const [productsAmount, setProductsAmount] = useState<number>(
+    localStorage.getItem('orders')?.split(',').length || 0
+  );
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   const modalContext = { isModalVisible, setIsModalVisible };
   const sidebarContext = { isSidebarVisible, setIsSidebarVisible };
   const loginContext = { isLoginModalVisible, setLoginModalVisible };
   const umodalContext = { isUModalVisible, setIsUModalVisible };
-  const productsAmountContext = { productsAmount, setProductAmount };
+  const productsAmountContext = { productsAmount, setProductsAmount };
   const authContext = { isLoggedIn, setIsLoggedIn };
 
   useEffect(() => {
