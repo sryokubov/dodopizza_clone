@@ -1,0 +1,118 @@
+.delivery__section_main_header {
+  margin: 100px 0 56px;
+  width: 100%;
+  font: bold 36px/1.2px "Dodo";
+}
+
+.delivery__section {
+  margin: 32px 0 60px;
+  display: flex;
+  gap: 52px;
+}
+
+//left section
+.delivery__section_left {
+  &_header {
+    margin: 0px 0px 5px;
+    font: 500 normal 18px/1.4 "Dodo";
+    color: rgb(255, 105, 0);
+    text-transform: uppercase;
+  }
+  &_p {
+    width: 434px;
+
+    font: 500 normal 15.625px/22.4px "Dodo";
+  }
+}
+//center section
+
+.delivery__section_center {
+  &_money_value {
+    margin: 0px 0px 20px;
+    font: 500 18px "Dodo";
+    color: rgb(255, 105, 0);
+  }
+  &_money_currency {
+    margin-left: -2px;
+  }
+  &_p {
+    padding-top: 12px;
+  }
+  &_money_value2nd {
+    margin-top: 27px;
+    color: rgb(255, 105, 0);
+    text-transform: uppercase;
+  }
+  &_text {
+    margin-top: 23px;
+  }
+}
+.delivery__section_right {
+  &_header {
+    font-family: "Dodo";
+    font-weight: 500;
+    font-size: 18px;
+    color: rgb(255, 105, 0);
+    text-transform: uppercase;
+  }
+
+  &_map_img_wrapper {
+    position: relative;
+    overflow: hidden;
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      font: 500 20px/1.4 "Dodo";
+      color: #000000;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 7px;
+    }
+
+    .delivery__section_right_map_img {
+      width: 281px;
+      height: 290px;
+      display: block;
+      transition: transform 1s ease, filter 0.25s ease 0s;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &_map {
+    position: relative;
+    overflow: hidden;
+    height: 290px;
+    border-width: 0;
+    border-radius: 6px;
+  }
+
+  &_map_image {
+    &:hover {
+      transform: scale(1.2) translate(-15px, -15px);
+      filter: saturate(2);
+      transition: transform 5s ease-out 0s;
+    }
+  }
+}
